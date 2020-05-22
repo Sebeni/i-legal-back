@@ -1,19 +1,16 @@
 package pl.seb.czech.ilegal.back.dataproviders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
-
+@Slf4j
 public abstract class InitDataProvider<E> {
     private Set<E> convertedElements = new HashSet<>();
-    private static final Logger LOGGER = LoggerFactory.getLogger("InitDataProvider");
     private static final String PATH_TO_EXAMPLES = "jsonExamples/";
-
 
     public InitDataProvider(ObjectMapper objectMapper, Class<E> elementType, String folderNameWithJsons, String... fileNames) {
         for (String jsonFileName : fileNames) {
@@ -22,7 +19,7 @@ public abstract class InitDataProvider<E> {
                 try {
                     convertedElements.add(objectMapper.readValue(fileURL, elementType));
                 } catch (IOException e) {
-                    LOGGER.error("Exception in Data provider with type" + elementType.toString(), e);
+                    log.error("Exception in Data provider with type" + elementType.toString(), e);
                 }
             }
         }

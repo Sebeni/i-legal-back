@@ -3,7 +3,6 @@ package pl.seb.czech.ilegal.back.repositories;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.repository.CrudRepository;
 import pl.seb.czech.ilegal.back.domain.BaseEntity;
-import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentDetails;
 
 import java.util.Optional;
 
@@ -20,12 +19,10 @@ public abstract class RepositoryTest<T extends BaseEntity<ID>, ID> {
         this.testedEntity = testedEntity;
         initialEntityCount = repository.count();
     }
-
-
+    
     @Test
     void shouldSaveAndDelete() {
         saveEntityInRepo();
-
         deleteEntityFromRepo();
     }
 

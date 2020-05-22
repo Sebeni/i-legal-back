@@ -2,11 +2,13 @@ package pl.seb.czech.ilegal.back.domain.act.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public class ActDto {
     private Long id;

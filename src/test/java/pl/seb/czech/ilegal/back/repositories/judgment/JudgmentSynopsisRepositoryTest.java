@@ -10,7 +10,6 @@ import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentSynopsis;
 import pl.seb.czech.ilegal.back.repositories.RepositoryTest;
 import pl.seb.czech.ilegal.back.repositories.judgment.JudgmentSynopsisRepository;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;

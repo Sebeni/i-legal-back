@@ -6,7 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 import pl.seb.czech.ilegal.back.domain.act.entity.Act;
 import pl.seb.czech.ilegal.back.repositories.RepositoryTest;
-import pl.seb.czech.ilegal.back.repositories.act.ActRepository;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
