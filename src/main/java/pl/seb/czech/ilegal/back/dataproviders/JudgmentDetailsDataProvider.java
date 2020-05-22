@@ -3,7 +3,7 @@ package pl.seb.czech.ilegal.back.dataproviders;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.seb.czech.ilegal.back.client.judgment.responses.SaosJudgmentDetails;
+import pl.seb.czech.ilegal.back.clients.judgment.responses.SaosJudgmentDetails;
 
 
 @Service
