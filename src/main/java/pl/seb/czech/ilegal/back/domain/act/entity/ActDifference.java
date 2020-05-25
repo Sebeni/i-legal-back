@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,4 +32,19 @@ public class ActDifference implements BaseEntity<Long> {
     private LocalDateTime lastChangeAfter;
     @Column(updatable = false)
     private LocalDateTime createdOn = NowTime.generate();
+    private String unifiedTxtUrlBefore;
+    private String unifiedTxtUrlAfter;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ActDifference that = (ActDifference) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

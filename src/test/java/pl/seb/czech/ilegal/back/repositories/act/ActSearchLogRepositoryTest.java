@@ -33,7 +33,7 @@ class ActSearchLogRepositoryTest extends RepositoryTest<ActSearchLog, Long> {
 
         ActSearchLog asl = getEntityFromRepoById();
         assertAll(
-                () -> assertEquals(timeStamp, asl.getTimeStamp()),
+                () -> assertEquals(timeStamp, asl.getCreatedOn()),
                 () -> assertEquals(responseTime, asl.getResponseTime()),
                 () -> assertEquals(onlyActInForce, asl.getOnlyActInForce()),
                 () -> assertEquals(title, asl.getTitle()),
@@ -51,6 +51,6 @@ class ActSearchLogRepositoryTest extends RepositoryTest<ActSearchLog, Long> {
     
     @Autowired
     public ActSearchLogRepositoryTest(ActSearchLogRepository repository) {
-        super(repository, new ActSearchLog(null, timeStamp, responseTime, onlyActInForce, title, keyWord, properName, publisher, year, position, resultCount));
+        super(repository, new ActSearchLog(null, timeStamp, responseTime, resultCount, onlyActInForce, title, keyWord, properName, publisher, year, position));
     }
 }

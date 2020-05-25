@@ -20,6 +20,8 @@ class ActDifferenceRepositoryTest extends RepositoryTest<ActDifference, Long> {
     private static LocalDateTime lastChangeBefore = LocalDateTime.of(1111,1,1,1,1,1);
     private static LocalDateTime lastChangeAfter = LocalDateTime.of(2222,2,2,2,2,2);
     private static LocalDateTime createdOn = NowTime.generate();
+    private static String urlBefore = "abc";
+    private static String urlAfter = "efg";
     
     @Test
     void shouldSaveAndGetEntityWithProperties() {
@@ -33,7 +35,9 @@ class ActDifferenceRepositoryTest extends RepositoryTest<ActDifference, Long> {
                 () -> assertEquals(statusAfter, ad.getStatusAfter()),
                 () -> assertEquals(lastChangeBefore, ad.getLastChangeBefore()),
                 () -> assertEquals(lastChangeAfter, ad.getLastChangeAfter()),
-                () -> assertEquals(createdOn, ad.getCreatedOn())
+                () -> assertEquals(createdOn, ad.getCreatedOn()),
+                () -> assertEquals(urlBefore, ad.getUnifiedTxtUrlBefore()),
+                () -> assertEquals(urlAfter, ad.getUnifiedTxtUrlAfter())
         );
         
         deleteEntityFromRepo();
@@ -41,6 +45,6 @@ class ActDifferenceRepositoryTest extends RepositoryTest<ActDifference, Long> {
     
     @Autowired
     public ActDifferenceRepositoryTest(ActDifferenceRepository repository) {
-        super(repository, new ActDifference(null, title, statusBefore, statusAfter, lastChangeBefore, lastChangeAfter, createdOn));
+        super(repository, new ActDifference(null, title, statusBefore, statusAfter, lastChangeBefore, lastChangeAfter, createdOn, urlBefore, urlAfter));
     }
 }

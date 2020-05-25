@@ -29,7 +29,9 @@ public class ActSearchLogDto extends SearchLogDto {
         this.position = query.getPosition();
     }
 
-    public ActSearchLogDto(Long id, LocalDateTime createdOn, Long responseTime, Integer resultCount, String onlyActInForce, String title, String keyWord, String properName, ActPublisher publisher, Integer year, Integer position) {
+    public ActSearchLogDto(Long id, LocalDateTime createdOn, Long responseTime, Integer resultCount, 
+                           String onlyActInForce, String title, String keyWord, String properName, 
+                           ActPublisher publisher, Integer year, Integer position) {
         super(id, createdOn, responseTime, resultCount);
         this.onlyActInForce = onlyActInForce;
         this.title = title;
@@ -39,4 +41,6 @@ public class ActSearchLogDto extends SearchLogDto {
         this.year = year;
         this.position = position;
     }
+    
+    
 }

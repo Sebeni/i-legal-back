@@ -39,7 +39,7 @@ class ActRepositoryTest extends RepositoryTest<Act, Long> {
                 () -> assertEquals(position, actFromRepo.getPosition()),
                 () -> assertEquals(title, actFromRepo.getTitle()),
                 () -> assertEquals(status, actFromRepo.getStatus()),
-                () -> assertEquals(promulgation, actFromRepo.getPromulgation()),
+                () -> assertEquals(promulgation, actFromRepo.getPromulgationDate()),
                 () -> assertEquals(changeDate, actFromRepo.getChangeDate()),
                 () -> assertEquals(publishUrl, actFromRepo.getPublishedTextUrl()),
                 () -> assertEquals(unifiedUrl, actFromRepo.getUnifiedTextUrl()),

@@ -31,7 +31,7 @@ class JudgmentSearchLogRepositoryTest extends RepositoryTest<JudgmentSearchLog, 
 
         JudgmentSearchLog jsl = getEntityFromRepoById();
         assertAll(
-                () -> assertEquals(timeStamp, jsl.getTimeStamp()),
+                () -> assertEquals(timeStamp, jsl.getCreatedOn()),
                 () -> assertEquals(responseTime, jsl.getResponseTime()),
                 () -> assertEquals(courtType, jsl.getCourtType()),
                 () -> assertEquals(signature, jsl.getSignature()),
@@ -46,6 +46,6 @@ class JudgmentSearchLogRepositoryTest extends RepositoryTest<JudgmentSearchLog, 
     
     @Autowired
     public JudgmentSearchLogRepositoryTest(JudgmentSearchLogRepository repository) {
-        super(repository, new JudgmentSearchLog(null, timeStamp, responseTime, courtType, signature, articleNumber, referencedRegulationYearPos, searchPhrase, resultCount));
+        super(repository, new JudgmentSearchLog(null, timeStamp, responseTime, resultCount, courtType, signature, articleNumber, referencedRegulationYearPos, searchPhrase));
     }
 }

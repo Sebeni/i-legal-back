@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -44,4 +45,18 @@ public class JudgmentSynopsis implements BaseEntity<Long> {
     )
     @JoinColumn(name = "judgment_details_id")
     private JudgmentDetails judgmentDetails;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JudgmentSynopsis that = (JudgmentSynopsis) o;
+        return Objects.equals(id, that.id) &&
+                saosId.equals(that.saosId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, saosId);
+    }
 }

@@ -6,6 +6,7 @@ import pl.seb.czech.ilegal.back.domain.SearchLog;
 import pl.seb.czech.ilegal.back.domain.judgment.CourtType;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -18,15 +19,15 @@ public class JudgmentSearchLog extends SearchLog {
     private Integer articleNumber;
     private String referencedRegulationYearPos;
     private String searchPhrase;
-    private Integer resultCount;
-
-    public JudgmentSearchLog(Long id, LocalDateTime timeStamp, Long responseTime, CourtType courtType, String signature, Integer articleNumber, String referencedRegulationYearPos, String searchPhrase, Integer resultCount) {
-        super(id, timeStamp, responseTime);
+    
+    public JudgmentSearchLog(Long id, LocalDateTime createdOn, Long responseTime, Integer resultCount, 
+                             CourtType courtType, String signature, Integer articleNumber, 
+                             String referencedRegulationYearPos, String searchPhrase) {
+        super(id, createdOn, responseTime, resultCount);
         this.courtType = courtType;
         this.signature = signature;
         this.articleNumber = articleNumber;
         this.referencedRegulationYearPos = referencedRegulationYearPos;
         this.searchPhrase = searchPhrase;
-        this.resultCount = resultCount;
     }
 }

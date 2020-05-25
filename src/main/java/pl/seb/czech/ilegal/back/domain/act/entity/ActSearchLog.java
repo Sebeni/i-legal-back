@@ -6,6 +6,7 @@ import pl.seb.czech.ilegal.back.domain.SearchLog;
 import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -20,10 +21,11 @@ public class ActSearchLog extends SearchLog {
     private ActPublisher publisher;
     private Integer year;
     private Integer position;
-    private Integer resultCount;
 
-    public ActSearchLog(Long id, LocalDateTime timeStamp, Long responseTime, String onlyActInForce, String title, String keyWord, String properName, ActPublisher publisher, Integer year, Integer position, Integer resultCount) {
-        super(id, timeStamp, responseTime);
+    public ActSearchLog(Long id, LocalDateTime createdOn, Long responseTime, Integer resultCount,
+                        String onlyActInForce, String title, String keyWord, String properName, 
+                        ActPublisher publisher, Integer year, Integer position) {
+        super(id, createdOn, responseTime, resultCount);
         this.onlyActInForce = onlyActInForce;
         this.title = title;
         this.keyWord = keyWord;
@@ -31,6 +33,5 @@ public class ActSearchLog extends SearchLog {
         this.publisher = publisher;
         this.year = year;
         this.position = position;
-        this.resultCount = resultCount;
     }
 }

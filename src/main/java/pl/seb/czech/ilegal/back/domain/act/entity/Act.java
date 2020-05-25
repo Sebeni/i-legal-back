@@ -32,7 +32,7 @@ public class Act implements BaseEntity<Long> {
     
     @Setter
     private String status;
-    private LocalDate promulgation;
+    private LocalDate promulgationDate;
     
     @Setter
     private LocalDateTime changeDate;

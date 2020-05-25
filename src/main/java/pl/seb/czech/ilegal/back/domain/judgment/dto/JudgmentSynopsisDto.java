@@ -8,6 +8,7 @@ import pl.seb.czech.ilegal.back.domain.judgment.JudgmentType;
 import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentDetails;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -22,5 +23,19 @@ public class JudgmentSynopsisDto {
     private String customName;
     private String synopsis;
     private LocalDate judgmentDate;
-    private JudgmentDetails judgmentDetails;
+    private JudgmentDetailsDto judgmentDetails;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JudgmentSynopsisDto that = (JudgmentSynopsisDto) o;
+        return Objects.equals(id, that.id) &&
+                saosId.equals(that.saosId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, saosId);
+    }
 }
