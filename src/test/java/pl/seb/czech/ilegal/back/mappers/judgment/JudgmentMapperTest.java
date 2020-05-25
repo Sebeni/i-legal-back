@@ -1,26 +1,32 @@
-package pl.seb.czech.ilegal.back.mappers;
+package pl.seb.czech.ilegal.back.mappers.judgment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.seb.czech.ilegal.back.domain.NowTime;
+import pl.seb.czech.ilegal.back.domain.act.dto.ActSearchLogDto;
+import pl.seb.czech.ilegal.back.domain.act.entity.ActSearchLog;
 import pl.seb.czech.ilegal.back.domain.judgment.CourtType;
 import pl.seb.czech.ilegal.back.domain.judgment.JudgmentType;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.*;
 import pl.seb.czech.ilegal.back.domain.judgment.entity.*;
+import pl.seb.czech.ilegal.back.mappers.MapperTest;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class JudgmentMapperTest {
+class JudgmentMapperTest extends MapperTest<JudgmentMapper, JudgmentSynopsis, JudgmentSynopsisDto> {
+
+    static JudgmentSynopsis[] entityArray = {new JudgmentSynopsis(), new JudgmentSynopsis(), new JudgmentSynopsis(), new JudgmentSynopsis()};
+    static JudgmentSynopsisDto[] dtoArray = {new JudgmentSynopsisDto(), new JudgmentSynopsisDto()};
+
     @Autowired
-    JudgmentMapper mapper;
-   
+    public JudgmentMapperTest(JudgmentMapper mapper) {
+        super(entityArray, dtoArray, mapper);
+    }
 
     @Test
     void mapToReferencedRegulation() {
@@ -145,7 +151,7 @@ class JudgmentMapperTest {
         JudgmentDetailsDto jdd = new JudgmentDetailsDto(null, saosId, textContent, referencedRegulations, keywords);
 
         JudgmentSynopsisDto jsd = new JudgmentSynopsisDto(id, saosId, courtType, caseNumbers, judgmentType, customName, synopsis, judgmentDate, jdd);
-        JudgmentSynopsis result = mapper.mapToJudgmentSynopsis(jsd);
+        JudgmentSynopsis result = mapper.mapToEntity(jsd);
         
         assertAll(
                 () -> assertEquals(id, result.getId()),
@@ -185,7 +191,7 @@ class JudgmentMapperTest {
         JudgmentDetails jd = new JudgmentDetails(null, saosId, textContent, referencedRegulations, keywords);
 
         JudgmentSynopsis js = new JudgmentSynopsis(id, saosId, courtType, caseNumbers, judgmentType, customName, synopsis, judgmentDate, jd);
-        JudgmentSynopsisDto result = mapper.mapToJudgmentSynopsisDto(js);
+        JudgmentSynopsisDto result = mapper.mapToDto(js);
 
         assertAll(
                 () -> assertEquals(id, result.getId()),
@@ -201,64 +207,6 @@ class JudgmentMapperTest {
                 () -> assertEquals(textContent, result.getJudgmentDetails().getTextContent()),
                 () -> assertEquals(1, result.getJudgmentDetails().getReferencedRegulations().size()),
                 () -> assertEquals(1, result.getJudgmentDetails().getKeywords().size())
-        );
-    }
-    
-    @Test
-    void mapToJudgmentSearchLog() {
-        Long id = 123L;
-        LocalDateTime timeStamp = NowTime.generate();
-        Long responseTime = 10L;
-        CourtType courtType = CourtType.SUPREME;
-        String signature = "I abc";
-        Integer articleNumber = 5;
-        String referencedRegulationYearPos = "100/10";
-        String searchPhrase = "search";
-        Integer resultCount = 5;
-
-        JudgmentSearchLogDto jsld = new JudgmentSearchLogDto(id, timeStamp, responseTime, resultCount, courtType, signature, 
-                articleNumber, referencedRegulationYearPos, searchPhrase);
-        JudgmentSearchLog result = mapper.mapToJudgmentSearchLog(jsld);
-        
-        assertAll(
-                () -> assertEquals(id, result.getId()),
-                () -> assertEquals(timeStamp, result.getCreatedOn()),
-                () -> assertEquals(responseTime, result.getResponseTime()),
-                () -> assertEquals(courtType, result.getCourtType()),
-                () -> assertEquals(signature, result.getSignature()),
-                () -> assertEquals(articleNumber, result.getArticleNumber()),
-                () -> assertEquals(referencedRegulationYearPos, result.getReferencedRegulationYearPos()),
-                () -> assertEquals(searchPhrase, result.getSearchPhrase()),
-                () -> assertEquals(resultCount, result.getResultCount())
-        );
-    }
-
-    @Test
-    void mapToJudgmentSearchLogDto() {
-        Long id = 123L;
-        LocalDateTime timeStamp = NowTime.generate();
-        Long responseTime = 10L;
-        CourtType courtType = CourtType.SUPREME;
-        String signature = "I abc";
-        Integer articleNumber = 5;
-        String referencedRegulationYearPos = "100/10";
-        String searchPhrase = "search";
-        Integer resultCount = 5;
-
-        JudgmentSearchLog jsl = new JudgmentSearchLog(id, timeStamp, responseTime, resultCount, courtType, signature,
-                articleNumber, referencedRegulationYearPos, searchPhrase);
-        JudgmentSearchLogDto result = mapper.mapToJudgmentSearchLogDto(jsl);
-
-        assertAll(
-                () -> assertEquals(id, result.getId()),
-                () -> assertEquals(timeStamp, result.getCreatedOn()),
-                () -> assertEquals(responseTime, result.getResponseTime()),
-                () -> assertEquals(courtType, result.getCourtType()),
-                () -> assertEquals(signature, result.getSignature()),
-                () -> assertEquals(articleNumber, result.getArticleNumber()),
-                () -> assertEquals(referencedRegulationYearPos, result.getReferencedRegulationYearPos()),
-                () -> assertEquals(searchPhrase, result.getSearchPhrase()),
-                () -> assertEquals(resultCount, result.getResultCount())
         );
     }
 }

@@ -1,12 +1,14 @@
 package pl.seb.czech.ilegal.back.domain.act.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import pl.seb.czech.ilegal.back.clients.act.responses.IsapAct;
 import pl.seb.czech.ilegal.back.domain.act.entity.Act;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@NoArgsConstructor
 @Getter
 public class ActDifferenceDto {
     private Long id;
