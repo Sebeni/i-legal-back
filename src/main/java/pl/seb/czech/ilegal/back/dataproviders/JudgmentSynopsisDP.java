@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 import pl.seb.czech.ilegal.back.clients.judgment.responses.SaosJudgmentSynopsis;
 
 @Service
-public class JudgmentSynopsisDataProvider extends InitDataProvider<SaosJudgmentSynopsis> {
+public class JudgmentSynopsisDP extends InitDataProvider<SaosJudgmentSynopsis> {
     private static final String[] FILE_NAMES = { "commonSynopsis", "commonSynopsis2", "KIOSynopsis", "SNSynopsis", "TKSynopsis"};
     
     
     @Autowired
-    public JudgmentSynopsisDataProvider(ObjectMapper objectMapper) {
+    public JudgmentSynopsisDP(ObjectMapper objectMapper) {
         super(objectMapper, SaosJudgmentSynopsis.class, "judgments/synopsis", FILE_NAMES);
     }
 }

@@ -42,28 +42,14 @@ public class JudgmentMapper extends ListMapper<JudgmentSynopsis, JudgmentSynopsi
         }
     }
 
-    public JudgmentKeyword mapToJudgmentKeyword(JudgmentKeywordDto jkd) {
-        if (jkd != null) {
-            return new JudgmentKeyword(jkd.getName());
-        } else {
-            return null;
-        }
-    }
-
-    public JudgmentKeywordDto mapToJudgmentKeywordDto(JudgmentKeyword jk) {
-        if (jk != null) {
-            return new JudgmentKeywordDto(jk.getName());
-        } else {
-            return null;
-        }
-    }
+  
 
     public JudgmentDetails mapToJudgmentDetails(JudgmentDetailsDto jdd) {
         if (jdd != null) {
             return new JudgmentDetails(jdd.getId(), jdd.getSaosId(), jdd.getTextContent(),
                     jdd.getReferencedRegulations().stream().map(this::mapToReferencedRegulation).collect(Collectors.toSet()),
-                    jdd.getKeywords().stream().map(this::mapToJudgmentKeyword).collect(Collectors.toSet())
-            );
+                    jdd.getLegalBases(),
+                    jdd.getKeywords());
         } else {
             return null;
         }
@@ -73,10 +59,12 @@ public class JudgmentMapper extends ListMapper<JudgmentSynopsis, JudgmentSynopsi
         if (jd != null) {
             return new JudgmentDetailsDto(jd.getId(), jd.getSaosId(), jd.getTextContent(),
                     jd.getReferencedRegulations().stream().map(this::mapToReferencedRegulationDto).collect(Collectors.toSet()),
-                    jd.getKeywords().stream().map(this::mapToJudgmentKeywordDto).collect(Collectors.toSet()));
+                    jd.getLegalBases(),
+                    jd.getKeywords());
         } else {
             return null;
         }
 
     }
+    
 }

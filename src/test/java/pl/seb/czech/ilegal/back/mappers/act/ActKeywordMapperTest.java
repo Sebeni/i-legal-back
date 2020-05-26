@@ -10,7 +10,7 @@ import pl.seb.czech.ilegal.back.mappers.MapperTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class ActKeywordMapperTest extends MapperTest<ActKeywordMapper, ActKeyword, ActKeywordDto> {
+class ActKeywordMapperTest extends MapperTest<ActKeyword, ActKeywordDto> {
     
     static ActKeyword[] entityArray = {new ActKeyword(), new ActKeyword()};
     static ActKeywordDto[] dtoArray = {new ActKeywordDto(), new ActKeywordDto()};

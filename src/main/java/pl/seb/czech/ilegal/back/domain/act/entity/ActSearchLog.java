@@ -2,6 +2,7 @@ package pl.seb.czech.ilegal.back.domain.act.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 import pl.seb.czech.ilegal.back.domain.SearchLog;
 import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 
@@ -14,6 +15,8 @@ import java.time.LocalDateTime;
 @Entity
 public class ActSearchLog extends SearchLog {
     private String onlyActInForce;
+
+    @Type(type = "text")
     private String title;
     private String keyWord;
     private String properName;

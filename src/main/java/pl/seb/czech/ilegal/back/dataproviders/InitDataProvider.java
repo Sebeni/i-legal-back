@@ -5,11 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 @Slf4j
 public abstract class InitDataProvider<E> {
-    private Set<E> convertedElements = new HashSet<>();
+    private List<E> convertedElements = new ArrayList<>();
     private static final String PATH_TO_EXAMPLES = "jsonExamples/";
 
     public InitDataProvider(ObjectMapper objectMapper, Class<E> elementType, String folderNameWithJsons, String... fileNames) {
@@ -25,7 +27,7 @@ public abstract class InitDataProvider<E> {
         }
     }
 
-    public Set<E> getConvertedElements() {
+    public List<E> getConvertedElements() {
         return convertedElements;
     }
 }

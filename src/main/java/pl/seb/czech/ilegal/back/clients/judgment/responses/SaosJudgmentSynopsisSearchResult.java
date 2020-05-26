@@ -6,10 +6,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.seb.czech.ilegal.back.domain.SearchResult;
+import pl.seb.czech.ilegal.back.clients.SearchResult;
 import pl.seb.czech.ilegal.back.clients.judgment.responses.deserializers.PageNumberDeserializer;
 import pl.seb.czech.ilegal.back.clients.judgment.responses.deserializers.TotalResultsDeserializer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -19,7 +20,7 @@ import java.util.List;
 public class SaosJudgmentSynopsisSearchResult implements SearchResult<SaosJudgmentSynopsis> {
     
     @JsonProperty(value = "items")
-    private List<SaosJudgmentSynopsis> results;
+    private List<SaosJudgmentSynopsis> results = new ArrayList<>();
     
     @JsonProperty(value = "info")
     @JsonDeserialize(using = TotalResultsDeserializer.class)

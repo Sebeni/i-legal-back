@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 import pl.seb.czech.ilegal.back.domain.BaseEntity;
 import pl.seb.czech.ilegal.back.domain.judgment.CourtType;
 import pl.seb.czech.ilegal.back.domain.judgment.JudgmentType;
@@ -35,6 +36,8 @@ public class JudgmentSynopsis implements BaseEntity<Long> {
     @Enumerated(EnumType.STRING)
     private JudgmentType judgmentType;
     private String customName;
+    
+    @Type(type="text")
     private String synopsis;
     private LocalDate judgmentDate;
 

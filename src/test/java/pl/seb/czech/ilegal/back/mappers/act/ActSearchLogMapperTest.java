@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class ActSearchLogMapperTest extends MapperTest<ActSearchLogMapper, ActSearchLog, ActSearchLogDto> {
+public class ActSearchLogMapperTest extends MapperTest<ActSearchLog, ActSearchLogDto> {
 
     static ActSearchLog[] entityArray = {new ActSearchLog(), new ActSearchLog(), new ActSearchLog(), new ActSearchLog()};
     static ActSearchLogDto[] dtoArray = {new ActSearchLogDto(), new ActSearchLogDto()};

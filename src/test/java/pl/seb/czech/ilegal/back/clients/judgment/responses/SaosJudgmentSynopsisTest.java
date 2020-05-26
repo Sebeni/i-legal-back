@@ -36,10 +36,6 @@ class SaosJudgmentSynopsisTest {
                 () -> assertTrue(finalJudgementFromJson.getCaseNumbers().contains("KIO 739/18")),
                 () -> assertEquals(2, finalJudgementFromJson.getCaseNumbers().size()),
                 () -> assertEquals(JudgmentType.SENTENCE, finalJudgementFromJson.getJudgmentType()),
-                () -> assertEquals(2, finalJudgementFromJson.getKeywords().size()),
-                () -> assertTrue(finalJudgementFromJson.getKeywords().contains("dobra osobiste")),
-                () -> assertTrue(finalJudgementFromJson.getKeywords().contains("test")),
-                () -> assertEquals(2, finalJudgementFromJson.getKeywords().size()), 
                 () -> assertEquals(LocalDate.of(2010, 3, 15), finalJudgementFromJson.getJudgmentDate())
         );
     }

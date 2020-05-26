@@ -3,6 +3,7 @@ package pl.seb.czech.ilegal.back.domain.act.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 import pl.seb.czech.ilegal.back.domain.BaseEntity;
 import pl.seb.czech.ilegal.back.domain.NowTime;
 
@@ -25,6 +26,8 @@ public class ActDifference implements BaseEntity<Long> {
     @NotNull
     @GeneratedValue
     private Long id;
+
+    @Type(type = "text")
     private String title;
     private String statusBefore;
     private String statusAfter;

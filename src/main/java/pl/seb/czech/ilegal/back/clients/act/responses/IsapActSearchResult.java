@@ -6,18 +6,19 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.seb.czech.ilegal.back.domain.SearchResult;
+import pl.seb.czech.ilegal.back.clients.SearchResult;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class IsapActSearchResult implements SearchResult<IsapAct> {
     
     @JsonProperty("items")
-    private List<IsapAct> foundIsapActs;
+    private List<IsapAct> foundIsapActs = new ArrayList<>();
     
     private Integer offset;
     private Integer count;

@@ -3,8 +3,6 @@ package pl.seb.czech.ilegal.back.domain.judgment.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentKeyword;
-import pl.seb.czech.ilegal.back.domain.judgment.entity.ReferencedRegulation;
 
 import java.util.Objects;
 import java.util.Set;
@@ -17,7 +15,8 @@ public class JudgmentDetailsDto {
     private Long saosId;
     private String textContent;
     private Set<ReferencedRegulationDto> referencedRegulations;
-    private Set<JudgmentKeywordDto> keywords;
+    private Set<String> legalBases;
+    private Set<String> keywords;
 
     @Override
     public boolean equals(Object o) {

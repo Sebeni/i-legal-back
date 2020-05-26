@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ReferencedRegulationRepositoryTest extends RepositoryTest<ReferencedRegulation, String> {
-    public static String title = "Ustawa z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych";
+    public static String title = "Test";
     public static Integer year = 1994;
     public static Integer volume = 24;
     public static Integer position = 83;
-    public static String text = "Ustawa z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych (Dz. U. z 1994 r. Nr 24, poz. 83 - art. 78; art. 78 ust. 1; art. 81; art. 83)";
+    public static String text = "text test";
 
     @Test
     void shouldSaveAndGetEntityWithProperties() {

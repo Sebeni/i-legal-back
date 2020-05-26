@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ActRepositoryTest extends RepositoryTest<Act, Long> {
-    private static String isapId = "1";
+    private static String isapId = "-1";
     private static ActPublisher ap = ActPublisher.WDU;
     private static Integer year = 1964;
     private static Integer volume = 16;
     private static Integer position = 93;
-    private static String title = "Ustawa z dnia 23 kwietnia 1964 r. - Kodeks cywilny.";
+    private static String title = "Ustawa z dnia 23 kwietnia 1964 r. - Test.";
     private static String status = "akt posiada tekst jednolity";
     private static LocalDate promulgation = LocalDate.of(1964, 5, 18);
     private static LocalDateTime changeDate = LocalDateTime.of(2020, 1, 1, 1, 1, 1);

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class ActDifferenceMapperTest extends MapperTest<ActDifferenceMapper, ActDifference, ActDifferenceDto> {
+class ActDifferenceMapperTest extends MapperTest<ActDifference, ActDifferenceDto> {
     
     static ActDifference[] entityArray = {new ActDifference()};
     static ActDifferenceDto[] dtoArray = {new ActDifferenceDto(), new ActDifferenceDto()};

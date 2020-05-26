@@ -3,6 +3,7 @@ package pl.seb.czech.ilegal.back.domain.judgment.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 import pl.seb.czech.ilegal.back.domain.BaseEntity;
 
 import javax.persistence.Entity;
@@ -18,11 +19,14 @@ import java.util.Objects;
 public class ReferencedRegulation implements BaseEntity<String> {
     @Id
     @NotNull
+    @Type(type = "text")
     private String title;
 
     private Integer year;
     private Integer volume;
     private Integer position;
+
+    @Type(type = "text")
     private String text;
     
     @Override

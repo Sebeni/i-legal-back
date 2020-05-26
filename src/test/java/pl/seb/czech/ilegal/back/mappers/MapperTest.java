@@ -10,13 +10,13 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public abstract class MapperTest<T extends ListMapper<E, EDto>, E, EDto> {
+public abstract class MapperTest<E, EDto> {
     List<E> entityList;
     List<EDto> dtoList;
-    protected T mapper;
+    protected ListMapper<E, EDto> mapper;
 
 
-    public MapperTest(E[] entityArray, EDto[] dtoArray, T mapper) {
+    public MapperTest(E[] entityArray, EDto[] dtoArray, ListMapper<E, EDto> mapper) {
         this.entityList = Arrays.asList(entityArray);
         this.dtoList = Arrays.asList(dtoArray);
         this.mapper = mapper;

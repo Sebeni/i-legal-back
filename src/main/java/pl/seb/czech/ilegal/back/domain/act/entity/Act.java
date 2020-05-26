@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 import pl.seb.czech.ilegal.back.domain.BaseEntity;
 import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 import javax.persistence.*;
@@ -28,6 +29,8 @@ public class Act implements BaseEntity<Long> {
     private Integer year;
     private Integer volume;
     private Integer position;
+
+    @Type(type = "text")
     private String title;
     
     @Setter

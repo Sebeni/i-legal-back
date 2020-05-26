@@ -3,6 +3,7 @@ package pl.seb.czech.ilegal.back.domain.judgment.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import pl.seb.czech.ilegal.back.domain.judgment.CourtType;
 import pl.seb.czech.ilegal.back.domain.judgment.JudgmentType;
 import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentDetails;
@@ -23,6 +24,7 @@ public class JudgmentSynopsisDto {
     private String customName;
     private String synopsis;
     private LocalDate judgmentDate;
+    @Setter
     private JudgmentDetailsDto judgmentDetails;
 
     @Override

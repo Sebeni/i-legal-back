@@ -19,7 +19,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class ActMapperTest extends MapperTest<ActMapper, Act, ActDto> {
+class ActMapperTest extends MapperTest<Act, ActDto> {
 
     static Act[] entityArray = {new Act(), new Act(), new Act(), new Act()};
     static ActDto[] dtoArray = {new ActDto(), new ActDto()};

@@ -1,9 +1,12 @@
 package pl.seb.czech.ilegal.back.mappers.act;
 
 import org.springframework.stereotype.Component;
+import pl.seb.czech.ilegal.back.clients.act.responses.IsapAct;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
 import pl.seb.czech.ilegal.back.domain.act.entity.Act;
 import pl.seb.czech.ilegal.back.mappers.ListMapper;
+
+import java.util.List;
 
 @Component
 public class ActMapper extends ListMapper<Act, ActDto> {
@@ -21,4 +24,12 @@ public class ActMapper extends ListMapper<Act, ActDto> {
                 act.getPosition(), act.getTitle(), act.getStatus(), act.getPromulgationDate(), act.getChangeDate(),
                 act.getPublishedTextUrl(), act.getUnifiedTextUrl());
     }
+    
+    public ActDto mapIsapActToDto(IsapAct isapAct) {
+        return new ActDto(null, isapAct.getIsapId(), isapAct.getPublisher(), isapAct.getYear(), isapAct.getVolume(),
+                isapAct.getPosition(), isapAct.getTitle(), isapAct.getStatus(), isapAct.getPromulgation(), 
+                isapAct.getChangeDate(), isapAct.getPublishedTextUrl(), isapAct.getUnifiedTextUrl());
+    }
+    
+    
 }

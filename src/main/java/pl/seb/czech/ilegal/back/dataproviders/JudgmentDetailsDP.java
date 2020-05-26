@@ -7,11 +7,11 @@ import pl.seb.czech.ilegal.back.clients.judgment.responses.SaosJudgmentDetails;
 
 
 @Service
-public class JudgmentDetailsDataProvider extends InitDataProvider<SaosJudgmentDetails> {
+public class JudgmentDetailsDP extends InitDataProvider<SaosJudgmentDetails> {
     private final static String[] FILE_NAMES = {"commonDetails", "commonDetails2", "KIODetails", "SNDetails", "TKDetails"};
 
     @Autowired
-    public JudgmentDetailsDataProvider(ObjectMapper objectMapper) {
+    public JudgmentDetailsDP(ObjectMapper objectMapper) {
         super(objectMapper, SaosJudgmentDetails.class, "judgments/details",  FILE_NAMES);
     }
 }

@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class JudgmentSearchLogMapperTest extends MapperTest<JudgmentSearchLogMapper, JudgmentSearchLog, JudgmentSearchLogDto> {
+class JudgmentSearchLogMapperTest extends MapperTest<JudgmentSearchLog, JudgmentSearchLogDto> {
 
     static JudgmentSearchLog[] entityArray = {new JudgmentSearchLog(), new JudgmentSearchLog(), new JudgmentSearchLog(), new JudgmentSearchLog()};
     static JudgmentSearchLogDto[] dtoArray = {new JudgmentSearchLogDto(), new JudgmentSearchLogDto()};
