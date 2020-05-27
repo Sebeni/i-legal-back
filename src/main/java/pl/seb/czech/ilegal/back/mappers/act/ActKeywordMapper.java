@@ -5,6 +5,9 @@ import pl.seb.czech.ilegal.back.domain.act.dto.ActKeywordDto;
 import pl.seb.czech.ilegal.back.domain.act.entity.ActKeyword;
 import pl.seb.czech.ilegal.back.mappers.ListMapper;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class ActKeywordMapper extends ListMapper<ActKeyword, ActKeywordDto> {
     
@@ -18,4 +21,7 @@ public class ActKeywordMapper extends ListMapper<ActKeyword, ActKeywordDto> {
         return new ActKeywordDto(ak.getName());
     }
     
+    public List<String> mapToStringList(List<ActKeyword> keywords){
+        return keywords.stream().map(ActKeyword::getName).collect(Collectors.toList());
+    }
 }

@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
+import pl.seb.czech.ilegal.back.domain.act.dto.ActKeywordDto;
+import pl.seb.czech.ilegal.back.mappers.act.ActKeywordMapper;
 import pl.seb.czech.ilegal.back.mappers.act.ActMapper;
 import pl.seb.czech.ilegal.back.services.act.ActDbService;
+import pl.seb.czech.ilegal.back.services.act.ActKeywordDbService;
 
 import java.util.List;
 
@@ -14,7 +17,10 @@ import java.util.List;
 public class ActController {
     @Autowired
     private ActDbService actDbService;
-    
+    @Autowired
+    private ActKeywordDbService keywordDbService;
+    @Autowired
+    private ActKeywordMapper keywordMapper;
     @Autowired
     private ActMapper actMapper;
     
@@ -51,5 +57,10 @@ public class ActController {
     @DeleteMapping(value = "${url.acts.deleteAll}")
     public void deleteAll() {
         actDbService.deleteAll();
+    }
+    
+    @GetMapping(value = "${url.acts.keywords}")
+    public List<String> getAllKeywords(){
+        return keywordMapper.mapToStringList(keywordDbService.getAll());
     }
 }

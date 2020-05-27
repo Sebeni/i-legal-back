@@ -16,6 +16,7 @@ import pl.seb.czech.ilegal.back.clients.act.responses.IsapActSearchResult;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,13 +39,13 @@ public class IsapClient implements Client<IsapAct> {
         return isapURIGenerator.generateDownloadActURI(isapActToDownload, textType);
     }
     
-    public boolean validateTxtExists(URI uri) {
+    public boolean validateTxtExists(String uri) {
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
         HttpStatus responseStatus = null;
         try {
-            ClientHttpRequest request = factory.createRequest(uri, HttpMethod.GET);
+            ClientHttpRequest request = factory.createRequest(new URI(uri), HttpMethod.GET);
             responseStatus = request.execute().getStatusCode();
-        } catch (IOException e) {
+        } catch (IOException | URISyntaxException e) {
             log.error("Exception in check if text exists", e);
         }
         return responseStatus == HttpStatus.OK;
