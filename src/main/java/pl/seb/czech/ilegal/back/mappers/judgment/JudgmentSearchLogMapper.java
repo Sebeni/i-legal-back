@@ -10,15 +10,11 @@ public class JudgmentSearchLogMapper extends ListMapper<JudgmentSearchLog, Judgm
     
     @Override
     public JudgmentSearchLog mapToEntity(JudgmentSearchLogDto jsld) {
-        return new JudgmentSearchLog(jsld.getId(), jsld.getCreatedOn(), jsld.getResponseTime(), jsld.getResultCount(),
-                jsld.getCourtType(), jsld.getSignature(), jsld.getArticleNumber(), jsld.getReferencedRegulationYearPos(),
-                jsld.getSearchPhrase());
+        return new JudgmentSearchLog(jsld.getId(), jsld.getCreatedOn(), jsld.getSearchParams(), jsld.getResultCount());
     }
 
     @Override
     public JudgmentSearchLogDto mapToDto(JudgmentSearchLog jsl) {
-        return new JudgmentSearchLogDto(jsl.getId(), jsl.getCreatedOn(), jsl.getResponseTime(), jsl.getResultCount(),
-                jsl.getCourtType(), jsl.getSignature(), jsl.getArticleNumber(), jsl.getReferencedRegulationYearPos(),
-                jsl.getSearchPhrase());
+        return new JudgmentSearchLogDto(jsl.getId(), jsl.getCreatedOn(), jsl.getSearchParams(), jsl.getResultCount());
     }
 }

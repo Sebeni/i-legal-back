@@ -1,6 +1,7 @@
 package pl.seb.czech.ilegal.back.clients.judgment;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import pl.seb.czech.ilegal.back.clients.Client;
@@ -12,6 +13,7 @@ import pl.seb.czech.ilegal.back.clients.judgment.responses.SaosJudgmentSynopsisS
 import java.net.URI;
 
 @Component
+@EnableAspectJAutoProxy
 public class SaosClient implements Client<SaosJudgmentSynopsis> {
     private RestTemplate restTemplate;
     private SaosURIGenerator saosURIGenerator;

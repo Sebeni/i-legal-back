@@ -11,14 +11,12 @@ public class ActDifferenceMapper extends ListMapper<ActDifference, ActDifference
     @Override
     public ActDifference mapToEntity(ActDifferenceDto add) {
         return new ActDifference(add.getId(), add.getTitle(), add.getStatusBefore(), add.getStatusAfter(),
-                add.getLastChangeBefore(), add.getLastChangeAfter(), add.getCreatedOn(), add.getUnifiedTxtUrlBefore(),
-                add.getUnifiedTxtUrlAfter());
+                add.getLastChangeBefore(), add.getLastChangeAfter(), add.getCreatedOn(), add.isDifferentAfter());
     }
 
     @Override
     public ActDifferenceDto mapToDto(ActDifference ad) {
         return new ActDifferenceDto(ad.getId(), ad.getTitle(), ad.getStatusBefore(), ad.getStatusAfter(),
-                ad.getLastChangeBefore(), ad.getLastChangeAfter(), ad.getCreatedOn(), ad.getUnifiedTxtUrlBefore(),
-                ad.getUnifiedTxtUrlAfter());
+                ad.getLastChangeBefore(), ad.getLastChangeAfter(), ad.getCreatedOn(), ad.isDifferentAfter());
     }
 }

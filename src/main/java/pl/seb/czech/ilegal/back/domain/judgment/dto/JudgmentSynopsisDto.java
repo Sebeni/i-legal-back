@@ -1,5 +1,6 @@
 package pl.seb.czech.ilegal.back.domain.judgment.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,8 @@ public class JudgmentSynopsisDto {
     private JudgmentType judgmentType;
     private String customName;
     private String synopsis;
+    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate judgmentDate;
     @Setter
     private JudgmentDetailsDto judgmentDetails;

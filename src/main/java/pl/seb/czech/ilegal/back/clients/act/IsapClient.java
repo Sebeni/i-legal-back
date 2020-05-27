@@ -2,6 +2,7 @@ package pl.seb.czech.ilegal.back.clients.act;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpRequest;
@@ -21,6 +22,7 @@ import java.util.List;
 
 @Slf4j
 @Component
+@EnableAspectJAutoProxy
 public class IsapClient implements Client<IsapAct> {
     private final IsapURIGenerator isapURIGenerator;
     private RestTemplate restTemplate;

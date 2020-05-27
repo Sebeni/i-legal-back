@@ -35,8 +35,8 @@ public class ActDifference implements BaseEntity<Long> {
     private LocalDateTime lastChangeAfter;
     @Column(updatable = false)
     private LocalDateTime createdOn = NowTime.generate();
-    private String unifiedTxtUrlBefore;
-    private String unifiedTxtUrlAfter;
+    @Column(updatable = false)
+    private boolean differentAfter;
 
     @Override
     public boolean equals(Object o) {

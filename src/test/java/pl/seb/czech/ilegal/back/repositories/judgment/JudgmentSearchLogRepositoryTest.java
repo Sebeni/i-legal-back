@@ -17,12 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class JudgmentSearchLogRepositoryTest extends RepositoryTest<JudgmentSearchLog, Long> {
     private static LocalDateTime timeStamp = NowTime.generate();
-    private static Long responseTime = 10L;
-    private static CourtType courtType = CourtType.SUPREME;
-    private static String signature = "I abc";
-    private static Integer articleNumber = 5;
-    private static String referencedRegulationYearPos = "100/10";
-    private static String searchPhrase = "search";
+  
     private static Integer resultCount = 5;
 
     @Test
@@ -32,12 +27,6 @@ class JudgmentSearchLogRepositoryTest extends RepositoryTest<JudgmentSearchLog, 
         JudgmentSearchLog jsl = getEntityFromRepoById();
         assertAll(
                 () -> assertEquals(timeStamp, jsl.getCreatedOn()),
-                () -> assertEquals(responseTime, jsl.getResponseTime()),
-                () -> assertEquals(courtType, jsl.getCourtType()),
-                () -> assertEquals(signature, jsl.getSignature()),
-                () -> assertEquals(articleNumber, jsl.getArticleNumber()),
-                () -> assertEquals(referencedRegulationYearPos, jsl.getReferencedRegulationYearPos()),
-                () -> assertEquals(searchPhrase, jsl.getSearchPhrase()),
                 () -> assertEquals(resultCount, jsl.getResultCount())
         );
 
@@ -46,6 +35,6 @@ class JudgmentSearchLogRepositoryTest extends RepositoryTest<JudgmentSearchLog, 
     
     @Autowired
     public JudgmentSearchLogRepositoryTest(JudgmentSearchLogRepository repository) {
-        super(repository, new JudgmentSearchLog(null, timeStamp, responseTime, resultCount, courtType, signature, articleNumber, referencedRegulationYearPos, searchPhrase));
+        super(repository, new JudgmentSearchLog(null, timeStamp, "abc", resultCount));
     }
 }

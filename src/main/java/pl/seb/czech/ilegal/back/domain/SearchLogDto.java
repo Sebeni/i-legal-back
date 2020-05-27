@@ -14,10 +14,8 @@ import java.util.Objects;
 @Getter
 public abstract class SearchLogDto {
     protected Long id;
-    protected LocalDateTime createdOn;
-    @Setter
-    protected Long responseTime;
-    @Setter
+    protected LocalDateTime createdOn = NowTime.generate();
+    private String searchParams;
     protected Integer resultCount;
 
     @Override

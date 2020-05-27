@@ -1,8 +1,10 @@
 package pl.seb.czech.ilegal.back.domain.act.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pl.seb.czech.ilegal.back.clients.act.responses.IsapAct;
+import pl.seb.czech.ilegal.back.domain.NowTime;
 import pl.seb.czech.ilegal.back.domain.act.entity.Act;
 
 import java.time.LocalDateTime;
@@ -15,23 +17,27 @@ public class ActDifferenceDto {
     private String title;
     private String statusBefore;
     private String statusAfter;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime lastChangeBefore;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime lastChangeAfter;
-    private LocalDateTime createdOn;
-    private String unifiedTxtUrlBefore;
-    private String unifiedTxtUrlAfter;
-
-    public ActDifferenceDto(Act actBefore, IsapAct actAfter) {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createdOn = NowTime.generate();
+    
+    private boolean differentAfter;
+    public ActDifferenceDto(ActDto actBefore, IsapAct actAfter) {
         title = actBefore.getTitle();
         statusBefore = actBefore.getStatus();
         statusAfter = actAfter.getStatus();
         lastChangeBefore = actBefore.getChangeDate();
         lastChangeAfter = actAfter.getChangeDate();
-        unifiedTxtUrlBefore = actBefore.getUnifiedTextUrl();
-        unifiedTxtUrlAfter = actAfter.getUnifiedTextUrl();
+        
+        differentAfter = !(statusBefore.equals(statusAfter)) || !(lastChangeBefore.equals(lastChangeAfter));
     }
-
-    public ActDifferenceDto(Long id, String title, String statusBefore, String statusAfter, LocalDateTime lastChangeBefore, LocalDateTime lastChangeAfter, LocalDateTime createdOn, String unifiedTxtUrlBefore, String unifiedTxtUrlAfter) {
+    
+    public ActDifferenceDto(Long id, String title, String statusBefore, String statusAfter, 
+                            LocalDateTime lastChangeBefore, LocalDateTime lastChangeAfter, 
+                            LocalDateTime createdOn, boolean differentAfter) {
         this.id = id;
         this.title = title;
         this.statusBefore = statusBefore;
@@ -39,8 +45,7 @@ public class ActDifferenceDto {
         this.lastChangeBefore = lastChangeBefore;
         this.lastChangeAfter = lastChangeAfter;
         this.createdOn = createdOn;
-        this.unifiedTxtUrlBefore = unifiedTxtUrlBefore;
-        this.unifiedTxtUrlAfter = unifiedTxtUrlAfter;
+        this.differentAfter = differentAfter;
     }
 
     @Override

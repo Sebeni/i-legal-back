@@ -31,10 +31,10 @@ class ActDifferenceMapperTest extends MapperTest<ActDifference, ActDifferenceDto
         LocalDateTime lastChangeBefore = LocalDateTime.of(1111,1,1,1,1,1);
         LocalDateTime lastChangeAfter = LocalDateTime.of(2222,2,2,2,2,2);
         LocalDateTime createdOn = NowTime.generate();
-        String unifiedTxtUrlBefore = "abc";
-        String unifiedTxtUrlAfter = "def";
+      
 
-        ActDifferenceDto add = new ActDifferenceDto(null, title, statusBefore, statusAfter, lastChangeBefore, lastChangeAfter, createdOn, unifiedTxtUrlBefore, unifiedTxtUrlAfter);
+        ActDifferenceDto add = new ActDifferenceDto(null, title, statusBefore, statusAfter, lastChangeBefore, 
+                lastChangeAfter, createdOn, true);
         ActDifference result = mapper.mapToEntity(add);
 
         assertAll(
@@ -45,8 +45,7 @@ class ActDifferenceMapperTest extends MapperTest<ActDifference, ActDifferenceDto
                 () -> assertEquals(lastChangeBefore, result.getLastChangeBefore()),
                 () -> assertEquals(lastChangeAfter, result.getLastChangeAfter()),
                 () -> assertEquals(createdOn, result.getCreatedOn()),
-                () -> assertEquals(unifiedTxtUrlBefore, result.getUnifiedTxtUrlBefore()),
-                () -> assertEquals(unifiedTxtUrlAfter, result.getUnifiedTxtUrlAfter())
+                () -> assertTrue(result.isDifferentAfter())
         );
     }
 
@@ -58,10 +57,10 @@ class ActDifferenceMapperTest extends MapperTest<ActDifference, ActDifferenceDto
         LocalDateTime lastChangeBefore = LocalDateTime.of(1111,1,1,1,1,1);
         LocalDateTime lastChangeAfter = LocalDateTime.of(2222,2,2,2,2,2);
         LocalDateTime createdOn = NowTime.generate();
-        String unifiedTxtUrlBefore = "abc";
-        String unifiedTxtUrlAfter = "def";
 
-        ActDifference ad = new ActDifference(null, title, statusBefore, statusAfter, lastChangeBefore, lastChangeAfter, createdOn, unifiedTxtUrlBefore, unifiedTxtUrlAfter);
+
+        ActDifference ad = new ActDifference(null, title, statusBefore, statusAfter, lastChangeBefore, lastChangeAfter, 
+                createdOn, true);
         ActDifferenceDto result = mapper.mapToDto(ad);
 
         assertAll(
@@ -72,8 +71,7 @@ class ActDifferenceMapperTest extends MapperTest<ActDifference, ActDifferenceDto
                 () -> assertEquals(lastChangeBefore, result.getLastChangeBefore()),
                 () -> assertEquals(lastChangeAfter, result.getLastChangeAfter()),
                 () -> assertEquals(createdOn, result.getCreatedOn()),
-                () -> assertEquals(unifiedTxtUrlBefore, result.getUnifiedTxtUrlBefore()),
-                () -> assertEquals(unifiedTxtUrlAfter, result.getUnifiedTxtUrlAfter())
+                () -> assertTrue(result.isDifferentAfter())
         );
     }
 }

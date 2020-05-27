@@ -3,6 +3,7 @@ package pl.seb.czech.ilegal.back.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @MappedSuperclass
 public abstract class SearchLog implements BaseEntity<Long> {
     @Id
@@ -26,9 +28,9 @@ public abstract class SearchLog implements BaseEntity<Long> {
 
     @Column(updatable = false)
     protected LocalDateTime createdOn = NowTime.generate();
-    
-    protected Long responseTime;
-    private Integer resultCount;
+
+    protected String searchParams;
+    protected Integer resultCount;
 
     @Override
     public boolean equals(Object o) {
