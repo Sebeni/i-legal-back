@@ -11,7 +11,6 @@ import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 public class IsapActSearchQuery extends SearchQuery {
     public static final String IN_FORCE_ACTS = "Obowiązujące";
     public static final String ALL_ACTS = "Wszystkie";

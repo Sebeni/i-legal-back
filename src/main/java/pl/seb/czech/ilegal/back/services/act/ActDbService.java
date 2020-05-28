@@ -19,7 +19,7 @@ public class ActDbService extends DbService<Act, Long> {
         this.actRepository = actRepo;
     }
     
-    public Act findByIsapId(String isapId) {
-        return actRepository.findByIsapId(isapId).orElseThrow(() -> new ElementNotFound(isapId));
+    public boolean existsByIsapId(String isapId){
+        return actRepository.existsActByIsapId(isapId);
     }
 }

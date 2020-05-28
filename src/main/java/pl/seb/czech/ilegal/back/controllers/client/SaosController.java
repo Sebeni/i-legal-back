@@ -2,15 +2,15 @@ package pl.seb.czech.ilegal.back.controllers.client;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.seb.czech.ilegal.back.clients.judgment.SaosClient;
 import pl.seb.czech.ilegal.back.clients.judgment.SaosJudgmentSynopsisSearchQuery;
 import pl.seb.czech.ilegal.back.clients.judgment.responses.SaosJudgmentSynopsis;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentDetailsDto;
+import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentSearchQueryDto;
+import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentSynopsisDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentSynopsisSearchResultDto;
+import pl.seb.czech.ilegal.back.mappers.judgment.JudgmentSearchQueryMapper;
 import pl.seb.czech.ilegal.back.mappers.judgment.SaosMapper;
 
 @RestController
@@ -20,14 +20,16 @@ public class SaosController {
     private SaosMapper saosMapper;
     @Autowired
     private SaosClient saosClient;
+    @Autowired
+    private JudgmentSearchQueryMapper searchMapper;
 
-    @GetMapping(value = "${url.saos}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public JudgmentSynopsisSearchResultDto performSearch(@RequestBody SaosJudgmentSynopsisSearchQuery searchQuery){
-        return saosMapper.mapToJudgmentSynopsisSearchResultDto(saosClient.performSearchQuery(searchQuery));
+    @PostMapping(value = "${url.judgments.saos}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public JudgmentSynopsisSearchResultDto performSearch(@RequestBody JudgmentSearchQueryDto searchQuery){
+        return saosMapper.mapToJudgmentSynopsisSearchResultDto(saosClient.performSearchQuery(searchMapper.mapToQuery(searchQuery)));
     }
     
-    @GetMapping(value = "${url.saos.details}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public JudgmentDetailsDto getJudmentDetails(@RequestBody SaosJudgmentSynopsis saosJudgmentSynopsis){
-        return saosMapper.mapToJudgmentDetailDto(saosClient.getJudgmentDetails(saosJudgmentSynopsis));
+    @GetMapping(value = "${url.judgments.saos.details}" + "/{saosId}")
+    public JudgmentDetailsDto searchForJudgmentDetails(@PathVariable String saosId){
+        return saosMapper.mapToJudgmentDetailDto(saosClient.getJudgmentDetails(saosId));
     }
 }

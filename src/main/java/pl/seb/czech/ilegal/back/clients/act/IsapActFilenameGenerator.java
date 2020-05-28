@@ -9,23 +9,22 @@ public class IsapActFilenameGenerator {
     private final String unifiedTextSuffix = "Lj";
     private final String extension = ".pdf";
 
-    private String generateUnifiedTxtFilename(IsapAct isapActToGenerate) {
-        String id = isapActToGenerate.getIsapId();
-        char firstLetter = id.charAt(1);
-        String year = id.substring(3, 7);
-        String position = id.substring(id.length() - 4);
+    private String generateUnifiedTxtFilename(String isapId) {
+        char firstLetter = isapId.charAt(1);
+        String year = isapId.substring(3, 7);
+        String position = isapId.substring(isapId.length() - 4);
         return firstLetter + year + position + unifiedTextSuffix + extension;
     }
 
-    private String generatePublishedTxtFileName(IsapAct isapActToGenerate) {
-        return generateUnifiedTxtFilename(isapActToGenerate).replaceAll(unifiedTextSuffix, "");
+    private String generatePublishedTxtFileName(String isapId) {
+        return generateUnifiedTxtFilename(isapId).replaceAll(unifiedTextSuffix, "");
     }
     
-    public String generateTxtFilename(IsapAct actToGenerateFrom, IsapActTextType textType) {
+    public String generateTxtFilename(String isapId, IsapActTextType textType) {
         if(textType == IsapActTextType.UNIFIED) {
-            return generateUnifiedTxtFilename(actToGenerateFrom);
+            return generateUnifiedTxtFilename(isapId);
         } else {
-            return generatePublishedTxtFileName(actToGenerateFrom);
+            return generatePublishedTxtFileName(isapId);
         }
     }
 }

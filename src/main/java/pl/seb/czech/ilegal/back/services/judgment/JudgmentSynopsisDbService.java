@@ -18,7 +18,7 @@ public class JudgmentSynopsisDbService extends DbService<JudgmentSynopsis, Long>
         this.judgmentSynopsisRepository = repository;
     }
     
-    public JudgmentSynopsis findBySaosId(Long saosId) {
-        return judgmentSynopsisRepository.findBySaosId(saosId).orElseThrow(() -> new ElementNotFound(saosId));
+    public boolean existsBySaosId(Long saosId) {
+        return judgmentSynopsisRepository.existsBySaosId(saosId);
     }
 }

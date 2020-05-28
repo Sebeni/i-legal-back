@@ -1,5 +1,6 @@
 package pl.seb.czech.ilegal.back.clients.judgment;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -10,7 +11,6 @@ import pl.seb.czech.ilegal.back.domain.judgment.CourtType;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 public class SaosJudgmentSynopsisSearchQuery extends SearchQuery {
     private CourtType courtType;
     private String signature;
@@ -18,9 +18,9 @@ public class SaosJudgmentSynopsisSearchQuery extends SearchQuery {
     private String referencedRegulationYearPos;
     private String searchPhrase;
     
-    private Integer pageNumber = 0;
-    private String sortingField = "JUDGMENT_DATE";
-    private String sortingDirection = "DESC";
+    private Integer pageNumber;
+    private String sortingField;
+    private String sortingDirection;
     
     @Override
     public void setPageNumber(int pageNumber) {

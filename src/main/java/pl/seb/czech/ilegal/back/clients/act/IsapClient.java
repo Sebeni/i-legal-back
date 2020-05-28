@@ -35,8 +35,8 @@ public class IsapClient implements Client<IsapAct> {
         this.restTemplate = restTemplate;
     }
 
-    public URI generateDownloadActURI(IsapAct isapActToDownload, IsapActTextType textType){
-        return isapURIGenerator.generateDownloadActURI(isapActToDownload, textType);
+    public URI generateDownloadActURI(String isapId, IsapActTextType textType){
+        return isapURIGenerator.generateDownloadActURI(isapId, textType);
     }
     
     public boolean validateTxtExists(String uri) {

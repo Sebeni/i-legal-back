@@ -20,32 +20,32 @@ public class JudgmentController {
     private JudgmentMapper judgmentMapper;
 
     @GetMapping(value = "${url.judgments}")
-    public List<JudgmentSynopsisDto> getAllActs() {
+    public List<JudgmentSynopsisDto> getAllEntities() {
         return judgmentMapper.mapToDtoList(judgmentDbService.getAll());
     }
 
     @GetMapping(value = "${url.judgments}" + "/{entityId}")
-    public JudgmentSynopsisDto getActById(@PathVariable long entityId) {
+    public JudgmentSynopsisDto getEntityById(@PathVariable Long entityId) {
         return judgmentMapper.mapToDto(judgmentDbService.getById(entityId));
     }
 
-    @GetMapping(value = "${url.judgments.bySaosId}", params = "id")
-    public JudgmentSynopsisDto getActByIsapId(@RequestParam long id) {
-        return judgmentMapper.mapToDto(judgmentDbService.findBySaosId(id));
+    @GetMapping(value = "${url.judgments.bySaosId}" + "/{saosId}")
+    public boolean checkEntityByApiId(@PathVariable Long saosId) {
+        return judgmentDbService.existsBySaosId(saosId);
     }
 
     @PostMapping(value = "${url.judgments}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public JudgmentSynopsisDto saveAct(@RequestBody JudgmentSynopsisDto jDto) {
+    public JudgmentSynopsisDto saveEntity(@RequestBody JudgmentSynopsisDto jDto) {
         return judgmentMapper.mapToDto(judgmentDbService.save(judgmentMapper.mapToEntity(jDto)));
     }
 
     @PutMapping(value = "${url.judgments}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public JudgmentSynopsisDto updateAct(@RequestBody JudgmentSynopsisDto jDto) {
+    public JudgmentSynopsisDto updateEntity(@RequestBody JudgmentSynopsisDto jDto) {
         return judgmentMapper.mapToDto(judgmentDbService.update(judgmentMapper.mapToEntity(jDto)));
     }
 
     @DeleteMapping(value = "${url.judgments}" + "/{entityId}")
-    public void deleteAct(@PathVariable Long entityId) {
+    public void deleteEntity(@PathVariable Long entityId) {
         judgmentDbService.deleteById(entityId);
     }
 

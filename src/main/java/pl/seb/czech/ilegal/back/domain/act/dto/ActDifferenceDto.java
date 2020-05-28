@@ -23,8 +23,8 @@ public class ActDifferenceDto {
     private LocalDateTime lastChangeAfter;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdOn = NowTime.generate();
-    
     private boolean differentAfter;
+    
     public ActDifferenceDto(ActDto actBefore, IsapAct actAfter) {
         title = actBefore.getTitle();
         statusBefore = actBefore.getStatus();

@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 public class ActSearchResultDto {
-    private List<ActDto> foundIsapActs = new ArrayList<>();
+    private List<ActDto> foundActs = new ArrayList<>();
     private Integer offset;
     private Integer count;
     private Integer numOfResults;

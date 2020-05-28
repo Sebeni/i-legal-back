@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import pl.seb.czech.ilegal.back.clients.act.IsapActSearchQuery;
 import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 
 import java.time.LocalDate;
@@ -55,5 +56,14 @@ class IsapActDeserializationTest {
                 () -> assertEquals(LocalDate.of(1964,5,18), finalAct.getPromulgation()),
                 () -> assertEquals(LocalDateTime.of(2020, 4, 14, 16,0,0), finalAct.getChangeDate())
         );
+    }
+
+
+    @Test
+    void bla() throws Exception {
+        IsapActSearchQuery isapActSearchQuery = new IsapActSearchQuery("a", "tilte", "key", "prop", ActPublisher.WDU, 1, 1, 0);
+        System.out.println(objectMapper.writeValueAsString(isapActSearchQuery));
+
+
     }
 }

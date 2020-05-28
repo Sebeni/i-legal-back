@@ -12,4 +12,6 @@ import java.util.Optional;
 public interface JudgmentSynopsisRepository extends CrudRepository<JudgmentSynopsis, Long> {
     
     Optional<JudgmentSynopsis> findBySaosId(Long saosId);
+    
+    boolean existsBySaosId(Long saosId);
 }

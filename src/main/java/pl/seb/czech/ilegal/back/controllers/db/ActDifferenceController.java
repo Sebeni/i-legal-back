@@ -20,18 +20,18 @@ public class ActDifferenceController {
     @Autowired
     private ActDifferenceMapper actDifferenceMapper;
     
-    @PutMapping(value = "${url.difference}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public List<ActDifferenceDto> checkForUpdates(@RequestBody List<Long> actIds){
-        return actDifferenceCheckerFacade.getActDifferences(actIds);
+    @GetMapping(value = "${url.acts.difference.update}")
+    public List<ActDifferenceDto> updateActs(){
+        return actDifferenceCheckerFacade.getActDifferences();
     }
     
-    @GetMapping(value = "${url.difference}")
-    public List<ActDifferenceDto> getAllDifferences(){
+    @GetMapping(value = "${url.acts.difference}")
+    public List<ActDifferenceDto> getDiffHistory(){
         return actDifferenceMapper.mapToDtoList(dbService.getAll());
     }
     
-    @DeleteMapping(value = "${url.difference}")
-    public void deleteAll(){
+    @DeleteMapping(value = "${url.acts.difference}")
+    public void deleteAllHistory(){
         dbService.deleteAll();
     }
 }

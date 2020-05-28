@@ -12,4 +12,6 @@ import java.util.Optional;
 public interface ActRepository extends CrudRepository<Act, Long> {
     
     Optional<Act> findByIsapId(String isapId);
+    
+    boolean existsActByIsapId(String isapId);
 }

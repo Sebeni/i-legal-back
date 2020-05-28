@@ -10,16 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class IsapActFilenameGeneratorTest {
-    private static IsapAct upiol;
-    private static IsapAct taxRates;
+    private static String upiol;
+    private static String taxRates;
 
     @Autowired
     private IsapActFilenameGenerator generator;
 
     @BeforeAll
     static void initAct() {
-        upiol = new IsapAct("WDU19910090031", null, null, null, null, null, null, null, null, null, null);
-        taxRates = new IsapAct("WMP20190000738", null, null, null, null, null, null, null, null, null, null);
+        upiol = "WDU19910090031";
+        taxRates = "WMP20190000738";
     }
 
     @Test

@@ -7,7 +7,7 @@ import pl.seb.czech.ilegal.back.domain.DeleteType;
 
 import java.util.List;
 import java.util.Set;
-
+@SuppressWarnings("rawtypes")
 public abstract class DbService<T extends BaseEntity<ID>, ID> {
     protected CrudRepository<T, ID> repository;
     protected DeleteLogDbService deleteLogDbService;
@@ -42,7 +42,7 @@ public abstract class DbService<T extends BaseEntity<ID>, ID> {
     public void deleteById(ID id) {
         long repositoryCountBeforeDelete = repository.count();
         repository.deleteById(id);
-        deleteLogDbService.saveIfDeleted(DeleteType.ALL, getClass().getSimpleName(), repositoryCountBeforeDelete);
+        deleteLogDbService.saveIfDeleted(DeleteType.BY_ID, getClass().getSimpleName(), repositoryCountBeforeDelete);
     }
     
     public void deleteAll() {

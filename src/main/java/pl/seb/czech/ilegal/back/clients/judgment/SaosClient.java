@@ -30,8 +30,8 @@ public class SaosClient implements Client<SaosJudgmentSynopsis> {
         return restTemplate.getForObject(searchUri, SaosJudgmentSynopsisSearchResult.class);
     }
     
-    public SaosJudgmentDetails getJudgmentDetails(SaosJudgmentSynopsis saosJudgmentSynopsis){ 
-        String searchURL = saosURIGenerator.getApiUrl() + "/judgments/" + saosJudgmentSynopsis.getSaosId();
+    public SaosJudgmentDetails getJudgmentDetails(String saosId){ 
+        String searchURL = saosURIGenerator.getApiUrl() + "/judgments/" + saosId;
         return restTemplate.getForObject(searchURL, SaosJudgmentDetails.class);
     }
 }

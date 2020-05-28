@@ -7,6 +7,7 @@ import pl.seb.czech.ilegal.back.clients.act.responses.IsapAct;
 import pl.seb.czech.ilegal.back.clients.act.responses.IsapActSearchResult;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDifferenceDto;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
+import pl.seb.czech.ilegal.back.domain.act.entity.Act;
 import pl.seb.czech.ilegal.back.mappers.act.ActDifferenceMapper;
 import pl.seb.czech.ilegal.back.mappers.act.ActMapper;
 import pl.seb.czech.ilegal.back.services.act.ActDbService;
@@ -36,12 +37,14 @@ public class ActDifferenceCheckerChecker implements ActDifferenceCheckerFacade {
     }
 
     @Override
-    public List<ActDifferenceDto> getActDifferences(List<Long> actsId) {
-        log.info("Performing check for act update with act ids : " + actsId);
+    public List<ActDifferenceDto> getActDifferences() {
+        log.info("Performing check for act update for all acts in DB");
         List<ActDifferenceDto> result = new ArrayList<>();
         
-        actsId.forEach(id -> {
-            ActDto actFromDb = actMapper.mapToDto(actDb.getById(id));
+        List<Act> actsFromDb = actDb.getAll();
+
+        actsFromDb.forEach(actDb -> {
+            ActDto actFromDb = actMapper.mapToDto(actDb);
             IsapActSearchResult resultQuery = isapClient.performSearchQuery(createQuery(actFromDb));
             if(resultQuery.getNumOfResults() > 0) {
                 IsapAct actFromQuery = resultQuery.getResultsList().get(0);
@@ -53,7 +56,7 @@ public class ActDifferenceCheckerChecker implements ActDifferenceCheckerFacade {
                 }
             } else {
                 log.error("Did not found act with isap id: " + actFromDb.getIsapId() + 
-                        " and domain id: " + id);
+                        " and domain id: " + String.valueOf(actDb.getId()));
             }
         });
         

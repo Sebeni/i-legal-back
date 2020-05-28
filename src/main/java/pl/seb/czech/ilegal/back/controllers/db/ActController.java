@@ -25,32 +25,32 @@ public class ActController {
     private ActMapper actMapper;
     
     @GetMapping(value = "${url.acts}")
-    public List<ActDto> getAllActs() {
+    public List<ActDto> getAllEntities() {
         return actMapper.mapToDtoList(actDbService.getAll());
     }
     
     @GetMapping(value = "${url.acts}" + "/{entityId}")
-    public ActDto getActById(@PathVariable Long entityId) {
+    public ActDto getEntityById(@PathVariable Long entityId) {
         return actMapper.mapToDto(actDbService.getById(entityId));
     }
     
-    @GetMapping(value = "${url.acts.byIsapId}", params = "id")
-    public ActDto getActByIsapId(@RequestParam String id) {
-        return actMapper.mapToDto(actDbService.findByIsapId(id));
+    @GetMapping(value = "${url.acts.byIsapId}" + "/{apiId}")
+    public boolean checkEntityByApiId(@PathVariable String apiId) {
+        return actDbService.existsByIsapId(apiId);
     }
     
     @PostMapping(value = "${url.acts}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ActDto saveAct(@RequestBody ActDto actDto) {
+    public ActDto saveEntity(@RequestBody ActDto actDto) {
         return actMapper.mapToDto(actDbService.save(actMapper.mapToEntity(actDto)));
     }
     
     @PutMapping(value = "${url.acts}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ActDto updateAct(@RequestBody ActDto actDto) {
+    public ActDto updateEntity(@RequestBody ActDto actDto) {
         return actMapper.mapToDto(actDbService.update(actMapper.mapToEntity(actDto)));
     }
     
     @DeleteMapping(value = "${url.acts}" + "/{entityId}")
-    public void deleteAct(@PathVariable Long entityId) {
+    public void deleteEntity(@PathVariable Long entityId) {
         actDbService.deleteById(entityId);
     }
     

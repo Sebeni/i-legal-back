@@ -7,7 +7,9 @@ import pl.seb.czech.ilegal.back.clients.act.IsapActSearchQuery;
 import pl.seb.czech.ilegal.back.clients.act.IsapActTextType;
 import pl.seb.czech.ilegal.back.clients.act.IsapClient;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
+import pl.seb.czech.ilegal.back.domain.act.dto.ActSearchQueryDto;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActSearchResultDto;
+import pl.seb.czech.ilegal.back.mappers.act.ActSearchQueryMapper;
 import pl.seb.czech.ilegal.back.mappers.act.IsapMapper;
 
 import java.net.URI;
@@ -19,21 +21,21 @@ public class IsapController {
     private IsapClient isapClient;
     @Autowired
     private IsapMapper isapMapper;
+    @Autowired
+    private ActSearchQueryMapper queryMapper;
     
-    @GetMapping(value = "${url.isap}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ActSearchResultDto performSearch(@RequestBody IsapActSearchQuery searchQuery){
-        return isapMapper.mapToActSearchResultDto(isapClient.performSearchQuery(searchQuery));
+    @PostMapping(value = "${url.acts.isap}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ActSearchResultDto performSearch(@RequestBody ActSearchQueryDto searchQuery){
+        return isapMapper.mapToActSearchResultDto(isapClient.performSearchQuery(queryMapper.mapToQuery(searchQuery)));
     }
     
-    @GetMapping(value = "${url.isap.text.link}" + "/{textType}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public URI getTxtDownloadUri(@RequestBody ActDto actDto, @PathVariable IsapActTextType textType){
-        return isapClient.generateDownloadActURI(isapMapper.mapToIsapAct(actDto), textType);
+    @GetMapping(value = "${url.acts.isap.text.link}" + "/{isapId}" + "/{textType}")
+    public URI getTxtDownloadUri(@PathVariable String isapId, @PathVariable IsapActTextType textType){
+        return isapClient.generateDownloadActURI(isapId, textType);
     }
     
-    @GetMapping(value = "${url.isap.text.link.check}")
+    @GetMapping(value = "${url.acts.isap.text.link.check}")
     public boolean checkIfTextExists(@RequestParam String uri) {
         return isapClient.validateTxtExists(uri);
     }
-    
-    
 }

@@ -22,14 +22,14 @@ public class IsapURIGenerator extends URIGenerator {
         this.generator = generator;
     }
     
-    public URI generateDownloadActURI(IsapAct isapActToDownload, IsapActTextType textType) {
+    public URI generateDownloadActURI(String isapId, IsapActTextType textType) {
         String downloadEndpointURL = apiUrl + "/deeds/{publisher}/{year}/{position}/text/{type}/{fileName}";
         Map<String, String> params = new HashMap<>();
-        params.put("publisher", isapActToDownload.getPublisher().name());
-        params.put("year", isapActToDownload.getYear().toString());
-        params.put("position", isapActToDownload.getPosition().toString());
+        params.put("publisher", isapId.substring(0,3));
+        params.put("year", isapId.substring(3, 7));
+        params.put("position", isapId.substring(10));
         params.put("type", textType.getSymbol());
-        params.put("fileName", generator.generateTxtFilename(isapActToDownload, textType));
+        params.put("fileName", generator.generateTxtFilename(isapId, textType));
 
         return UriComponentsBuilder.fromUriString(downloadEndpointURL).buildAndExpand(params).toUri();
     }
