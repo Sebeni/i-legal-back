@@ -13,7 +13,7 @@ import java.util.Map;
 
 @Service
 public class IsapURIGenerator extends URIGenerator {
-    private IsapActFilenameGenerator generator;
+    private final IsapActFilenameGenerator generator;
     private final String searchEndpointUrl = "/search";
     
     @Autowired

@@ -4,7 +4,7 @@ public enum IsapActTextType {
     PUBLISHED("O"),
     UNIFIED("U");
 
-    private String symbol;
+    private final String symbol;
 
     IsapActTextType(String symbol) {
         this.symbol = symbol;

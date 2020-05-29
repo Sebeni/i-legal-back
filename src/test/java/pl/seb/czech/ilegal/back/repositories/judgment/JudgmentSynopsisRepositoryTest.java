@@ -19,13 +19,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class JudgmentSynopsisRepositoryTest extends RepositoryTest<JudgmentSynopsis, Long> {
 
-    private static Long saosId = 555L;
-    private static CourtType courtType = CourtType.COMMON;
-    private static Set<String> caseNumbers = new HashSet<>();
-    private static JudgmentType judgmentType = JudgmentType.SENTENCE;
-    private static String customName = "custom name";
-    private static String synopsis = "synopsis";
-    private static LocalDate judgmentDate = LocalDate.of(2222,2,2);
+    private static final Long saosId = 555L;
+    private static final CourtType courtType = CourtType.COMMON;
+    private static final Set<String> caseNumbers = new HashSet<>();
+    private static final JudgmentType judgmentType = JudgmentType.SENTENCE;
+    private static final String customName = "custom name";
+    private static final String synopsis = "synopsis";
+    private static final LocalDate judgmentDate = LocalDate.of(2222,2,2);
     
     @Autowired
     JudgmentDetailsRepository detailsRepository;

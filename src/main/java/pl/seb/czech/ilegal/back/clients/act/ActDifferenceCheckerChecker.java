@@ -19,11 +19,11 @@ import java.util.List;
 @Component
 @Slf4j
 public class ActDifferenceCheckerChecker implements ActDifferenceCheckerFacade {
-    private ActDifferenceDbService actDiffDb;
-    private ActDbService actDb;
-    private IsapClient isapClient;
-    private ActMapper actMapper;
-    private ActDifferenceMapper actDifferenceMapper;
+    private final ActDifferenceDbService actDiffDb;
+    private final ActDbService actDb;
+    private final IsapClient isapClient;
+    private final ActMapper actMapper;
+    private final ActDifferenceMapper actDifferenceMapper;
 
     @Autowired
     public ActDifferenceCheckerChecker(ActDifferenceDbService actDiffDb, ActDbService actDb, IsapClient isapClient,
@@ -56,7 +56,7 @@ public class ActDifferenceCheckerChecker implements ActDifferenceCheckerFacade {
                 }
             } else {
                 log.error("Did not found act with isap id: " + actFromDb.getIsapId() + 
-                        " and domain id: " + String.valueOf(actDb.getId()));
+                        " and domain id: " + actDb.getId());
             }
         });
         

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class IsapURIGeneratorTest {
-    private static String isapId = "WDU19640160093";
+    private static final String isapId = "WDU19640160093";
     
     @Autowired
     private IsapURIGenerator isapURIGenerator;

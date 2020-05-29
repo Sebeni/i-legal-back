@@ -36,7 +36,7 @@ class SaosJudgmentDetailsDeserializationTest {
         );
     }
 
-    private String jsonDetails = "{\n" +
+    private final String jsonDetails = "{\n" +
             "    \"links\": [\n" +
             "        {\n" +
             "            \"rel\": \"self\",\n" +

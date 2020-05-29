@@ -15,8 +15,8 @@ import java.net.URI;
 @Component
 @EnableAspectJAutoProxy
 public class SaosClient implements Client<SaosJudgmentSynopsis> {
-    private RestTemplate restTemplate;
-    private SaosURIGenerator saosURIGenerator;
+    private final RestTemplate restTemplate;
+    private final SaosURIGenerator saosURIGenerator;
 
     @Autowired
     public SaosClient(RestTemplate restTemplate, SaosURIGenerator saosURIGenerator) {

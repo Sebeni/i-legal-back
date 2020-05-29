@@ -45,7 +45,7 @@ class JudgmentMapperTest extends MapperTest<JudgmentSynopsis, JudgmentSynopsisDt
     Set<String> keywords = new HashSet<>(Arrays.asList("keyword"));
     Set<String> legalBases = new HashSet<>(Arrays.asList("legalBase"));
     
-    private JudgmentMapper judgmentMapper;
+    private final JudgmentMapper judgmentMapper;
     
     @Autowired
     public JudgmentMapperTest(JudgmentMapper mapper) {

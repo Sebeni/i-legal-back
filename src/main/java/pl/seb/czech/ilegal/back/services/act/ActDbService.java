@@ -11,7 +11,7 @@ import pl.seb.czech.ilegal.back.services.ElementNotFound;
 
 @Service
 public class ActDbService extends DbService<Act, Long> {
-    private ActRepository actRepository;
+    private final ActRepository actRepository;
     
     @Autowired
     public ActDbService(ActRepository actRepo, ActDeleteLogDbService deleteLogDbService) {

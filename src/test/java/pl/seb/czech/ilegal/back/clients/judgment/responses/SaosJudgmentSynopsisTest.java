@@ -40,7 +40,7 @@ class SaosJudgmentSynopsisTest {
         );
     }
     
-    private String supremeCourt = "{\n" +
+    private final String supremeCourt = "{\n" +
             "            \"id\": 76256,\n" +
             "            \"href\": \"https://www.saos.org.pl/api/judgments/76256\",\n" +
             "            \"courtType\": \"SUPREME\",\n" +

@@ -26,7 +26,7 @@ import java.util.List;
 @EnableAspectJAutoProxy
 public class IsapClient implements Client<IsapAct> {
     private final IsapURIGenerator isapURIGenerator;
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
  
 
     @Autowired

@@ -14,12 +14,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ActDifferenceRepositoryTest extends RepositoryTest<ActDifference, Long> {
-    private static String title = "title";
-    private static String statusBefore = "obowiązujący";
-    private static String statusAfter = "uchylony";
-    private static LocalDateTime lastChangeBefore = LocalDateTime.of(1111,1,1,1,1,1);
-    private static LocalDateTime lastChangeAfter = LocalDateTime.of(2222,2,2,2,2,2);
-    private static LocalDateTime createdOn = NowTime.generate();
+    private static final String title = "title";
+    private static final String statusBefore = "obowiązujący";
+    private static final String statusAfter = "uchylony";
+    private static final LocalDateTime lastChangeBefore = LocalDateTime.of(1111,1,1,1,1,1);
+    private static final LocalDateTime lastChangeAfter = LocalDateTime.of(2222,2,2,2,2,2);
+    private static final LocalDateTime createdOn = NowTime.generate();
 
     
     @Test

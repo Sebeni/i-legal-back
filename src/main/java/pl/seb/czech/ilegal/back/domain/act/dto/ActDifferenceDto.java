@@ -1,6 +1,7 @@
 package pl.seb.czech.ilegal.back.domain.act.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pl.seb.czech.ilegal.back.clients.act.responses.IsapAct;
@@ -10,6 +11,7 @@ import pl.seb.czech.ilegal.back.domain.act.entity.Act;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public class ActDifferenceDto {
@@ -35,19 +37,6 @@ public class ActDifferenceDto {
         differentAfter = !(statusBefore.equals(statusAfter)) || !(lastChangeBefore.equals(lastChangeAfter));
     }
     
-    public ActDifferenceDto(Long id, String title, String statusBefore, String statusAfter, 
-                            LocalDateTime lastChangeBefore, LocalDateTime lastChangeAfter, 
-                            LocalDateTime createdOn, boolean differentAfter) {
-        this.id = id;
-        this.title = title;
-        this.statusBefore = statusBefore;
-        this.statusAfter = statusAfter;
-        this.lastChangeBefore = lastChangeBefore;
-        this.lastChangeAfter = lastChangeAfter;
-        this.createdOn = createdOn;
-        this.differentAfter = differentAfter;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

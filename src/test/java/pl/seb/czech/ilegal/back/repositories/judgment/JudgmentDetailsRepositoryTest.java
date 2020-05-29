@@ -18,11 +18,11 @@ class JudgmentDetailsRepositoryTest extends RepositoryTest<JudgmentDetails, Long
     ReferencedRegulationRepository refRegRepository;
     
     
-    private static Long saosId = -1L;
-    private static String textContent = "o przywrócenie terminu do złożenia wniosku o doręczenie wyroku Sądu Apelacyjnego";
-    private static Set<ReferencedRegulation> referencedRegulations = new HashSet<>();
-    private static Set<String> keywords = new HashSet<>();
-    private static Set<String> legalBases = new HashSet<>();
+    private static final Long saosId = -1L;
+    private static final String textContent = "o przywrócenie terminu do złożenia wniosku o doręczenie wyroku Sądu Apelacyjnego";
+    private static final Set<ReferencedRegulation> referencedRegulations = new HashSet<>();
+    private static final Set<String> keywords = new HashSet<>();
+    private static final Set<String> legalBases = new HashSet<>();
     
     @Test
     void shouldSaveAndGetEntityWithProperties(){

@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class ActKeywordDbService extends DbService<ActKeyword, String> {
-    private IsapClient isapClient;
+    private final IsapClient isapClient;
     
     @Autowired
     public ActKeywordDbService(ActKeywordRepository repository, ActDeleteLogDbService deleteLogDbService, 

@@ -10,7 +10,7 @@ import pl.seb.czech.ilegal.back.services.ElementNotFound;
 
 @Service
 public class JudgmentSynopsisDbService extends DbService<JudgmentSynopsis, Long> {
-    private JudgmentSynopsisRepository judgmentSynopsisRepository;
+    private final JudgmentSynopsisRepository judgmentSynopsisRepository;
     
     @Autowired
     public JudgmentSynopsisDbService(JudgmentSynopsisRepository repository, JudgmentDeleteLogDbService deleteLogDbService) {

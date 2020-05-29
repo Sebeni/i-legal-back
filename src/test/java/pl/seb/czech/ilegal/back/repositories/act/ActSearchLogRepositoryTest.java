@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ActSearchLogRepositoryTest extends RepositoryTest<ActSearchLog, Long> {
-    private static LocalDateTime timeStamp = NowTime.generate();
-    private static Integer resultCount = 3;
+    private static final LocalDateTime timeStamp = NowTime.generate();
+    private static final Integer resultCount = 3;
 
     @Test
     void shouldSaveAndGetEntityWithProperties() {

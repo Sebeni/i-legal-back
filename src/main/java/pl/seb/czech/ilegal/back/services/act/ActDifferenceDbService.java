@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class ActDifferenceDbService extends DbService<ActDifference, Long> {
-    private ActDifferenceRepository actDifferenceRepository;
+    private final ActDifferenceRepository actDifferenceRepository;
     
     @Autowired
     public ActDifferenceDbService(ActDifferenceRepository repository, ActDeleteLogDbService deleteLogDbService) {

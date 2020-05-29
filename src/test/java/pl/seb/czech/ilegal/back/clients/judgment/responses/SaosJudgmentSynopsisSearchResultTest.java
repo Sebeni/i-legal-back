@@ -32,7 +32,7 @@ class SaosJudgmentSynopsisSearchResultTest {
         );
     }
     
-    private String jsonResult = "{\n" +
+    private final String jsonResult = "{\n" +
             "    \"links\": [\n" +
             "        {\n" +
             "            \"rel\": \"self\",\n" +

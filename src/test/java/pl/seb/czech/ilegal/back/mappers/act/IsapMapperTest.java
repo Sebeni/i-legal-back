@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class IsapMapperTest extends ResultQueryMapperTest<IsapAct, ActDto> {
-    private static IsapActSearchResult searchResult = new IsapActSearchResult();
+    private static final IsapActSearchResult searchResult = new IsapActSearchResult();
     static {
         searchResult.getResultsList().add(new IsapAct());
     }

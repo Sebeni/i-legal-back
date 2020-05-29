@@ -50,4 +50,5 @@ public class ActDifference implements BaseEntity<Long> {
     public int hashCode() {
         return Objects.hash(id);
     }
+    
 }

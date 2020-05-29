@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ActKeywordRepositoryTest extends RepositoryTest<ActKeyword, String> {
-    private static String name = "TestTest";
+    private static final String name = "TestTest";
  
     
     @Test

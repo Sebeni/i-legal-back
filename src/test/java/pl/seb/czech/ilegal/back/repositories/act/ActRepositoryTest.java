@@ -14,17 +14,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ActRepositoryTest extends RepositoryTest<Act, Long> {
-    private static String isapId = "-1";
-    private static ActPublisher ap = ActPublisher.WDU;
-    private static Integer year = 1964;
-    private static Integer volume = 16;
-    private static Integer position = 93;
-    private static String title = "Ustawa z dnia 23 kwietnia 1964 r. - Test.";
-    private static String status = "akt posiada tekst jednolity";
-    private static LocalDate promulgation = LocalDate.of(1964, 5, 18);
-    private static LocalDateTime changeDate = LocalDateTime.of(2020, 1, 1, 1, 1, 1);
-    private static String publishUrl = "abc";
-    private static String unifiedUrl = "cde";
+    private static final String isapId = "-1";
+    private static final ActPublisher ap = ActPublisher.WDU;
+    private static final Integer year = 1964;
+    private static final Integer volume = 16;
+    private static final Integer position = 93;
+    private static final String title = "Ustawa z dnia 23 kwietnia 1964 r. - Test.";
+    private static final String status = "akt posiada tekst jednolity";
+    private static final LocalDate promulgation = LocalDate.of(1964, 5, 18);
+    private static final LocalDateTime changeDate = LocalDateTime.of(2020, 1, 1, 1, 1, 1);
+    private static final String publishUrl = "abc";
+    private static final String unifiedUrl = "cde";
     
     @Test
     void shouldSaveAndGetEntityWithProperties() {

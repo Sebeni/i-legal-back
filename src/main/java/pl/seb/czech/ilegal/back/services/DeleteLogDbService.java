@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public abstract class DeleteLogDbService<T extends DeleteLog> {
-    private CrudRepository<T, Long> deleteRepository;
-    private Supplier<T> supplier;
+    private final CrudRepository<T, Long> deleteRepository;
+    private final Supplier<T> supplier;
 
     public DeleteLogDbService(CrudRepository<T, Long> deleteRepository, Supplier<T> supplier) {
         this.deleteRepository = deleteRepository;

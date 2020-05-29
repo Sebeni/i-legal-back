@@ -16,9 +16,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class JudgmentSearchLogRepositoryTest extends RepositoryTest<JudgmentSearchLog, Long> {
-    private static LocalDateTime timeStamp = NowTime.generate();
+    private static final LocalDateTime timeStamp = NowTime.generate();
   
-    private static Integer resultCount = 5;
+    private static final Integer resultCount = 5;
 
     @Test
     void shouldSaveAndGetEntityWithProperties() {

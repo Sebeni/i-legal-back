@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class SaosMapperTest extends ResultQueryMapperTest<SaosJudgmentSynopsis, JudgmentSynopsisDto>{
-    private static SaosJudgmentSynopsisSearchResult searchResult = new SaosJudgmentSynopsisSearchResult();
+    private static final SaosJudgmentSynopsisSearchResult searchResult = new SaosJudgmentSynopsisSearchResult();
     static {
         searchResult.getResultsList().add(new SaosJudgmentSynopsis());
     }
