@@ -18,7 +18,7 @@ import java.util.List;
 
 @Component
 @Slf4j
-public class ActDifferenceCheckerChecker implements ActDifferenceCheckerFacade {
+public class ActDifferenceCheckerFinder implements ActDifferenceFinderFacade {
     private final ActDifferenceDbService actDiffDb;
     private final ActDbService actDb;
     private final IsapClient isapClient;
@@ -26,8 +26,8 @@ public class ActDifferenceCheckerChecker implements ActDifferenceCheckerFacade {
     private final ActDifferenceMapper actDifferenceMapper;
 
     @Autowired
-    public ActDifferenceCheckerChecker(ActDifferenceDbService actDiffDb, ActDbService actDb, IsapClient isapClient,
-                                       ActMapper actMapper, ActDifferenceMapper actDifferenceMapper) {
+    public ActDifferenceCheckerFinder(ActDifferenceDbService actDiffDb, ActDbService actDb, IsapClient isapClient,
+                                      ActMapper actMapper, ActDifferenceMapper actDifferenceMapper) {
         this.actDiffDb = actDiffDb;
         this.actDb = actDb;
         this.isapClient = isapClient;
