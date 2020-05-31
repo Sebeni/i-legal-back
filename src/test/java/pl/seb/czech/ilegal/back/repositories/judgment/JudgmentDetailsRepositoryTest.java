@@ -7,6 +7,7 @@ import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentDetails;
 import pl.seb.czech.ilegal.back.domain.judgment.entity.ReferencedRegulation;
 import pl.seb.czech.ilegal.back.repositories.RepositoryTest;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,8 +22,8 @@ class JudgmentDetailsRepositoryTest extends RepositoryTest<JudgmentDetails, Long
     private static final Long saosId = -1L;
     private static final String textContent = "o przywrócenie terminu do złożenia wniosku o doręczenie wyroku Sądu Apelacyjnego";
     private static final Set<ReferencedRegulation> referencedRegulations = new HashSet<>();
-    private static final Set<String> keywords = new HashSet<>();
-    private static final Set<String> legalBases = new HashSet<>();
+    private static final Set<String> keywords = new HashSet<>(Arrays.asList("key1", "key2"));
+    private static final Set<String> legalBases = new HashSet<>(Arrays.asList("lb1", "lb2"));
     
     @Test
     void shouldSaveAndGetEntityWithProperties(){
@@ -33,7 +34,9 @@ class JudgmentDetailsRepositoryTest extends RepositoryTest<JudgmentDetails, Long
         assertAll(
                 () -> assertEquals(saosId, entityFromRepo.getSaosId()),
                 () -> assertEquals(textContent, entityFromRepo.getTextContent()),
-                () -> assertEquals(initialEntityCount + 1, repository.count())
+                () -> assertEquals(initialEntityCount + 1, repository.count()),
+                () -> assertEquals(keywords.size(), entityFromRepo.getKeywords().size()),
+                () -> assertEquals(legalBases.size(), entityFromRepo.getLegalBases().size())
         );
         
         deleteEntityFromRepo();

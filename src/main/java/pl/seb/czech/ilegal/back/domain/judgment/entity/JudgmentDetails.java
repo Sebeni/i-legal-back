@@ -35,10 +35,10 @@ public class JudgmentDetails implements BaseEntity<Long> {
     @JoinColumn(name = "judg_det_id")
     private Set<ReferencedRegulation> referencedRegulations = new HashSet<>();
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private Set<String> legalBases = new HashSet<>();
     
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private Set<String> keywords = new HashSet<>();
 
     @Override
