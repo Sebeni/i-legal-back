@@ -24,7 +24,7 @@ public class JudmentHistoryController {
     @Autowired
     private JudgmentSearchLogMapper searchLogMapper;
     @Autowired
-    private JudgmentDeleteLogDbService deleteLogDbService;;
+    private JudgmentDeleteLogDbService deleteLogDbService;
     @Autowired
     private JudgmentDeleteLogMapper deleteLogMapper;
 
@@ -34,7 +34,7 @@ public class JudmentHistoryController {
     }
 
     @DeleteMapping(value = "${url.judgments.history.log.search}")
-    public void deleteLog(){
+    public void clearSearchLog(){
         searchLogDbService.deleteAll();
     }
 

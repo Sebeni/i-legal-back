@@ -34,13 +34,12 @@ public class ActHistoryController {
     }
     
     @DeleteMapping(value = "${url.acts.history.log.search}")
-    public void deleteLog(){
+    public void clearSearchLog(){
         searchLogDbService.deleteAll();
     }
     
     @GetMapping(value = "${url.acts.history.log.delete}")
     public List<ActDeleteLogDto> getDeleteLog() {
-        List<ActDeleteLogDto> result = deleteLogMapper.mapToDeleteLogDtoList(deleteLogDbService.getAllDeleteLogs());
-        return result;
+        return deleteLogMapper.mapToDeleteLogDtoList(deleteLogDbService.getAllDeleteLogs());
     }
 }

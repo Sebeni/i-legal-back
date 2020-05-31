@@ -30,19 +30,4 @@ public class IsapMapper extends ResultQueryMapper<IsapAct, ActDto> {
                 searchResultElement.getPublishedTextUrl(),
                 searchResultElement.getUnifiedTextUrl());
     }
-    
-    public IsapAct mapToIsapAct(ActDto actDto){
-        return new IsapAct(
-                actDto.getIsapId(),
-                actDto.getPublisher(),
-                actDto.getYear(),
-                actDto.getVolume(),
-                actDto.getPosition(),
-                actDto.getTitle(),
-                actDto.getStatus(),
-                actDto.getPromulgationDate(),
-                actDto.getChangeDate(),
-                actDto.getPublishedTextUrl(),
-                actDto.getUnifiedTextUrl());
-    }
 }

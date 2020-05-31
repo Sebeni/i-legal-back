@@ -54,7 +54,7 @@ public class ActController {
         actDbService.deleteById(entityId);
     }
     
-    @DeleteMapping(value = "${url.acts.deleteAll}")
+    @DeleteMapping(value = "${url.acts}")
     public void deleteAll() {
         actDbService.deleteAll();
     }

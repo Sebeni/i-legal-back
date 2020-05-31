@@ -49,7 +49,7 @@ public class JudgmentController {
         judgmentDbService.deleteById(entityId);
     }
 
-    @DeleteMapping(value = "${url.judgments.deleteAll}")
+    @DeleteMapping(value = "${url.judgments}")
     public void deleteAll() {
         judgmentDbService.deleteAll();
     }

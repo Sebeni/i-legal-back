@@ -24,6 +24,18 @@ class ActMapperTest extends MapperTest<Act, ActDto> {
     static Act[] entityArray = {new Act(), new Act(), new Act(), new Act()};
     static ActDto[] dtoArray = {new ActDto(), new ActDto()};
 
+    String isapId = "1";
+    ActPublisher ap = ActPublisher.WDU;
+    Integer year = 4;
+    Integer volume = -1;
+    Integer position = -5;
+    String title = "test";
+    String status = "akt posiada test jednolity";
+    LocalDate promulgation = LocalDate.of(1123, 5, 18);
+    LocalDateTime changeDate = LocalDateTime.of(1234, 1, 1, 1, 1, 1);
+    String publishUrl = "abc";
+    String unifiedUrl = "cde";
+    
     @Autowired
     public ActMapperTest(ActMapper mapper) {
         super(entityArray, dtoArray, mapper);
@@ -31,18 +43,6 @@ class ActMapperTest extends MapperTest<Act, ActDto> {
 
     @Test
     void mapToAct() {
-        String isapId = "1";
-        ActPublisher ap = ActPublisher.WDU;
-        Integer year = 1964;
-        Integer volume = 16;
-        Integer position = 93;
-        String title = "Ustawa z dnia 23 kwietnia 1964 r. - Kodeks cywilny.";
-        String status = "akt posiada tekst jednolity";
-        LocalDate promulgation = LocalDate.of(1964, 5, 18);
-        LocalDateTime changeDate = LocalDateTime.of(2020, 1, 1, 1, 1, 1);
-        String publishUrl = "abc";
-        String unifiedUrl = "cde";
-        
         ActDto ad = new ActDto(null, isapId, ap, year, volume, position, title, status, promulgation, changeDate, publishUrl, unifiedUrl);
         Act result = mapper.mapToEntity(ad);
         
@@ -64,18 +64,6 @@ class ActMapperTest extends MapperTest<Act, ActDto> {
 
     @Test
     void mapToActDto() {
-        String isapId = "1";
-        ActPublisher ap = ActPublisher.WDU;
-        Integer year = 1964;
-        Integer volume = 16;
-        Integer position = 93;
-        String title = "Ustawa z dnia 23 kwietnia 1964 r. - Kodeks cywilny.";
-        String status = "akt posiada tekst jednolity";
-        LocalDate promulgation = LocalDate.of(1964, 5, 18);
-        LocalDateTime changeDate = LocalDateTime.of(2020, 1, 1, 1, 1, 1);
-        String publishUrl = "abc";
-        String unifiedUrl = "cde";
-
         Act act = new Act(null, isapId, ap, year, volume, position, title, status, promulgation, changeDate, publishUrl, unifiedUrl);
         ActDto result = mapper.mapToDto(act);
 

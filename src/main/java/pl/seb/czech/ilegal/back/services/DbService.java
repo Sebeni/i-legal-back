@@ -22,12 +22,12 @@ public abstract class DbService<T extends BaseEntity<ID>, ID> {
     }
 
     public T update(T entityToUpdate) {
-        ID actId = entityToUpdate.getId();
+        ID id = entityToUpdate.getId();
 
-        if(findIfExistsById(actId)) {
+        if(findIfExistsById(id)) {
             return save(entityToUpdate);
         } else {
-            throw new ElementNotFound(actId);
+            throw new ElementNotFound(id);
         }
     }
 
