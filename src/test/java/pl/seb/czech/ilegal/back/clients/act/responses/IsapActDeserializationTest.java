@@ -57,13 +57,4 @@ class IsapActDeserializationTest {
                 () -> assertEquals(LocalDateTime.of(2020, 4, 14, 16,0,0), finalAct.getChangeDate())
         );
     }
-
-
-    @Test
-    void bla() throws Exception {
-        IsapActSearchQuery isapActSearchQuery = new IsapActSearchQuery("a", "tilte", "key", "prop", ActPublisher.WDU, 1, 1, 0);
-        System.out.println(objectMapper.writeValueAsString(isapActSearchQuery));
-
-
-    }
 }

@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "${url.base.history}")
-public class JudmentHistoryController {
+public class JudgmentHistoryController {
     @Autowired
     private JudgmentSearchLogDbService searchLogDbService;
     @Autowired

@@ -24,7 +24,7 @@ public class ActDifferenceController {
     private UpdateScheduler updateScheduler;
     
     @GetMapping(value = "${url.acts.difference.update}")
-    public List<ActDifferenceDto> updateActs(){
+    public List<ActDifferenceDto> updateAndGetActs(){
         return actDifferenceFinderFacade.getActDifferences();
     }
     
