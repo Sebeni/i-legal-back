@@ -10,8 +10,6 @@ import pl.seb.czech.ilegal.back.domain.ElementNotFoundLog;
 import pl.seb.czech.ilegal.back.repositories.ElementNotFoundLogRepository;
 import pl.seb.czech.ilegal.back.services.ElementNotFound;
 
-import java.util.Arrays;
-
 @Slf4j
 @ControllerAdvice
 public class ControllersExceptionHandler {

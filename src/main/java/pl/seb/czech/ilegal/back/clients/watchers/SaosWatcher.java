@@ -6,11 +6,8 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.seb.czech.ilegal.back.clients.SearchQuery;
-import pl.seb.czech.ilegal.back.clients.act.responses.IsapActSearchResult;
 import pl.seb.czech.ilegal.back.clients.judgment.responses.SaosJudgmentSynopsisSearchResult;
-import pl.seb.czech.ilegal.back.domain.act.entity.ActSearchLog;
 import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentSearchLog;
-import pl.seb.czech.ilegal.back.services.act.ActSearchLogDbService;
 import pl.seb.czech.ilegal.back.services.judgment.JudgmentSearchLogDbService;
 
 @Component

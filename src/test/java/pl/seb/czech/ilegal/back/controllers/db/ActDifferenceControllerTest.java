@@ -20,7 +20,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -81,7 +80,7 @@ class ActDifferenceControllerTest {
         mvc.perform(MockMvcRequestBuilders.get(baseEndpoint + diffHistory))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(result.size())));;
+                .andExpect(jsonPath("$", hasSize(result.size())));
     }
 
     @Test

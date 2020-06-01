@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.seb.czech.ilegal.back.clients.act.IsapClient;
 import pl.seb.czech.ilegal.back.domain.act.entity.ActKeyword;
-import pl.seb.czech.ilegal.back.mappers.act.IsapMapper;
 import pl.seb.czech.ilegal.back.repositories.act.ActKeywordRepository;
 import pl.seb.czech.ilegal.back.services.DbService;
 

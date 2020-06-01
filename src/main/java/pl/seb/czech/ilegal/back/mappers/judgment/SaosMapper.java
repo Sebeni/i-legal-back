@@ -9,10 +9,8 @@ import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentDetailsDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentSynopsisDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentSynopsisSearchResultDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.ReferencedRegulationDto;
-import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentDetails;
 import pl.seb.czech.ilegal.back.mappers.ResultQueryMapper;
 
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 

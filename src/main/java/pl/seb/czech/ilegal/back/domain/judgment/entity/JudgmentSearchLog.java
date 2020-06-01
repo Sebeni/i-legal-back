@@ -2,7 +2,6 @@ package pl.seb.czech.ilegal.back.domain.judgment.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import pl.seb.czech.ilegal.back.domain.SearchLog;
 
 import javax.persistence.*;

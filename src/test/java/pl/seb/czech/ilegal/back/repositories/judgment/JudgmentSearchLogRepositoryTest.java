@@ -3,10 +3,7 @@ package pl.seb.czech.ilegal.back.repositories.judgment;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.repository.CrudRepository;
 import pl.seb.czech.ilegal.back.domain.NowTime;
-import pl.seb.czech.ilegal.back.domain.act.entity.ActSearchLog;
-import pl.seb.czech.ilegal.back.domain.judgment.CourtType;
 import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentSearchLog;
 import pl.seb.czech.ilegal.back.repositories.RepositoryTest;
 

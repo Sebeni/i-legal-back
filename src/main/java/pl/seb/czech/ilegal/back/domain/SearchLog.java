@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -11,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 @NoArgsConstructor
@@ -29,6 +28,7 @@ public abstract class SearchLog implements BaseEntity<Long> {
     @Column(updatable = false)
     protected LocalDateTime createdOn = NowTime.generate();
 
+    @Type(type = "text")
     protected String searchParams;
     protected Integer resultCount;
 

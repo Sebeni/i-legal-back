@@ -6,7 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import pl.seb.czech.ilegal.back.domain.DeleteType;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDeleteLogDto;
 import pl.seb.czech.ilegal.back.domain.act.entity.ActDeleteLog;
-import pl.seb.czech.ilegal.back.mappers.DeleteLogMapper;
 import pl.seb.czech.ilegal.back.mappers.DeleteLogMapperTest;
 
 @SpringBootTest

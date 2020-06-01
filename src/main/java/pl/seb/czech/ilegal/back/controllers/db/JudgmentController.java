@@ -3,7 +3,6 @@ package pl.seb.czech.ilegal.back.controllers.db;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentSynopsisDto;
 import pl.seb.czech.ilegal.back.mappers.judgment.JudgmentMapper;
 import pl.seb.czech.ilegal.back.services.judgment.JudgmentSynopsisDbService;

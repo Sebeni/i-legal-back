@@ -1,7 +1,5 @@
 package pl.seb.czech.ilegal.back.mappers;
 
-import pl.seb.czech.ilegal.back.clients.SearchResult;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

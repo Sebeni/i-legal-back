@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActDeleteLogDto;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActSearchLogDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentDeleteLogDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentSearchLogDto;
 import pl.seb.czech.ilegal.back.mappers.judgment.JudgmentDeleteLogMapper;

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 import pl.seb.czech.ilegal.back.clients.URIGenerator;
 import pl.seb.czech.ilegal.back.clients.SearchQuery;
-import pl.seb.czech.ilegal.back.clients.act.responses.IsapAct;
 
 import java.net.URI;
 import java.util.HashMap;

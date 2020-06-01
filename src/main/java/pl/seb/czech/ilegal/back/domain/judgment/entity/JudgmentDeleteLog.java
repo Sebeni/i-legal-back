@@ -6,8 +6,6 @@ import pl.seb.czech.ilegal.back.domain.DeleteLog;
 import pl.seb.czech.ilegal.back.domain.DeleteType;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @Getter

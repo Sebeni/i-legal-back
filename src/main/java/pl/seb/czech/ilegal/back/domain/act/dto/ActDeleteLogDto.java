@@ -1,6 +1,5 @@
 package pl.seb.czech.ilegal.back.domain.act.dto;
 
-import pl.seb.czech.ilegal.back.domain.DeleteLog;
 import pl.seb.czech.ilegal.back.domain.DeleteLogDto;
 import pl.seb.czech.ilegal.back.domain.DeleteType;
 

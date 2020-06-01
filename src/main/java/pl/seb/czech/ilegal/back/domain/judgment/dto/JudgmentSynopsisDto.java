@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.seb.czech.ilegal.back.domain.judgment.CourtType;
 import pl.seb.czech.ilegal.back.domain.judgment.JudgmentType;
-import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentDetails;
 
 import java.time.LocalDate;
 import java.util.Objects;

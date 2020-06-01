@@ -6,13 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import pl.seb.czech.ilegal.back.domain.DeleteType;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentDeleteLogDto;
 import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentDeleteLog;
-import pl.seb.czech.ilegal.back.mappers.DeleteLogMapper;
 import pl.seb.czech.ilegal.back.mappers.DeleteLogMapperTest;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class JudgmentDeleteLogMapperTest extends DeleteLogMapperTest<JudgmentDeleteLog, JudgmentDeleteLogDto> {

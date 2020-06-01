@@ -1,6 +1,5 @@
 package pl.seb.czech.ilegal.back.clients.judgment;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;

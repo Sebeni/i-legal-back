@@ -9,16 +9,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import pl.seb.czech.ilegal.back.domain.NowTime;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActDeleteLogDto;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActSearchLogDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentDeleteLogDto;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.JudgmentSearchLogDto;
-import pl.seb.czech.ilegal.back.mappers.act.ActDeleteLogMapper;
-import pl.seb.czech.ilegal.back.mappers.act.ActSearchLogMapper;
 import pl.seb.czech.ilegal.back.mappers.judgment.JudgmentDeleteLogMapper;
 import pl.seb.czech.ilegal.back.mappers.judgment.JudgmentSearchLogMapper;
-import pl.seb.czech.ilegal.back.services.act.ActDeleteLogDbService;
-import pl.seb.czech.ilegal.back.services.act.ActSearchLogDbService;
 import pl.seb.czech.ilegal.back.services.judgment.JudgmentDeleteLogDbService;
 import pl.seb.czech.ilegal.back.services.judgment.JudgmentSearchLogDbService;
 
@@ -26,10 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

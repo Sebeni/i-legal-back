@@ -3,7 +3,6 @@ package pl.seb.czech.ilegal.back.services;
 import org.springframework.data.repository.CrudRepository;
 import pl.seb.czech.ilegal.back.domain.DeleteLog;
 import pl.seb.czech.ilegal.back.domain.DeleteType;
-import pl.seb.czech.ilegal.back.domain.judgment.entity.JudgmentDeleteLog;
 
 import java.util.List;
 import java.util.function.Supplier;

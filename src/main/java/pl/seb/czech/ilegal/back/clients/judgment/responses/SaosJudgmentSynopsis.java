@@ -12,7 +12,6 @@ import pl.seb.czech.ilegal.back.domain.judgment.JudgmentType;
 import pl.seb.czech.ilegal.back.clients.judgment.responses.deserializers.CaseNumberDeserializer;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor

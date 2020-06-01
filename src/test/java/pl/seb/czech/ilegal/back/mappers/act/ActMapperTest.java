@@ -5,16 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActKeywordDto;
 import pl.seb.czech.ilegal.back.domain.act.entity.Act;
-import pl.seb.czech.ilegal.back.domain.act.entity.ActKeyword;
 import pl.seb.czech.ilegal.back.mappers.MapperTest;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

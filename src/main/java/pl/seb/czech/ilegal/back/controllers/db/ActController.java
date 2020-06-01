@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActKeywordDto;
 import pl.seb.czech.ilegal.back.mappers.act.ActKeywordMapper;
 import pl.seb.czech.ilegal.back.mappers.act.ActMapper;
 import pl.seb.czech.ilegal.back.services.act.ActDbService;

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.seb.czech.ilegal.back.clients.act.IsapActSearchQuery;
 import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 
 import java.time.LocalDate;

@@ -6,9 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 @Slf4j
 public abstract class InitDataProvider<E> {
     private List<E> convertedElements = new ArrayList<>();

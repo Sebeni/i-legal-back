@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import pl.seb.czech.ilegal.back.domain.NowTime;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDifferenceDto;
 
 import java.time.LocalDateTime;

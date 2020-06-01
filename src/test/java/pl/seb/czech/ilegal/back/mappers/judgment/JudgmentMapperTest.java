@@ -3,8 +3,6 @@ package pl.seb.czech.ilegal.back.mappers.judgment;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActSearchLogDto;
-import pl.seb.czech.ilegal.back.domain.act.entity.ActSearchLog;
 import pl.seb.czech.ilegal.back.domain.judgment.CourtType;
 import pl.seb.czech.ilegal.back.domain.judgment.JudgmentType;
 import pl.seb.czech.ilegal.back.domain.judgment.dto.*;

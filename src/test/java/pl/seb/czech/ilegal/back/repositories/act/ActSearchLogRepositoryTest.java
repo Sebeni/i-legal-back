@@ -4,13 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.seb.czech.ilegal.back.domain.NowTime;
-import pl.seb.czech.ilegal.back.domain.act.ActPublisher;
 import pl.seb.czech.ilegal.back.domain.act.entity.ActSearchLog;
 import pl.seb.czech.ilegal.back.repositories.RepositoryTest;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 

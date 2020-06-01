@@ -8,7 +8,6 @@ import pl.seb.czech.ilegal.back.domain.act.entity.ActDifference;
 import pl.seb.czech.ilegal.back.repositories.RepositoryTest;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 import static org.junit.jupiter.api.Assertions.*;
 

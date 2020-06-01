@@ -1,7 +1,5 @@
 package pl.seb.czech.ilegal.back.controllers.db;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,24 +8,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import pl.seb.czech.ilegal.back.clients.act.ActDifferenceFinderFacade;
 import pl.seb.czech.ilegal.back.domain.NowTime;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDeleteLogDto;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActSearchLogDto;
 import pl.seb.czech.ilegal.back.mappers.act.ActDeleteLogMapper;
-import pl.seb.czech.ilegal.back.mappers.act.ActDifferenceMapper;
 import pl.seb.czech.ilegal.back.mappers.act.ActSearchLogMapper;
-import pl.seb.czech.ilegal.back.scheduler.UpdateScheduler;
 import pl.seb.czech.ilegal.back.services.act.ActDeleteLogDbService;
-import pl.seb.czech.ilegal.back.services.act.ActDifferenceDbService;
 import pl.seb.czech.ilegal.back.services.act.ActSearchLogDbService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;

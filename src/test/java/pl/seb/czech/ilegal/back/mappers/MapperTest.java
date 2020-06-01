@@ -1,10 +1,7 @@
 package pl.seb.czech.ilegal.back.mappers;
 
 import org.junit.jupiter.api.Test;
-import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
-import pl.seb.czech.ilegal.back.domain.act.entity.Act;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

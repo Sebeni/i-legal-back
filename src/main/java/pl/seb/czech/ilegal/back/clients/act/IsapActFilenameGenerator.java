@@ -1,7 +1,6 @@
 package pl.seb.czech.ilegal.back.clients.act;
 
 import org.springframework.stereotype.Service;
-import pl.seb.czech.ilegal.back.clients.act.responses.IsapAct;
 
 
 @Service

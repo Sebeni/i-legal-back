@@ -6,8 +6,6 @@ import pl.seb.czech.ilegal.back.domain.act.dto.ActDto;
 import pl.seb.czech.ilegal.back.domain.act.entity.Act;
 import pl.seb.czech.ilegal.back.mappers.ListMapper;
 
-import java.util.List;
-
 @Component
 public class ActMapper extends ListMapper<Act, ActDto> {
     

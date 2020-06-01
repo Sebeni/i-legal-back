@@ -1,12 +1,11 @@
 package pl.seb.czech.ilegal.back.services;
 
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.repository.CrudRepository;
 import pl.seb.czech.ilegal.back.domain.BaseEntity;
 import pl.seb.czech.ilegal.back.domain.DeleteType;
 
 import java.util.List;
-import java.util.Set;
+
 @SuppressWarnings("rawtypes")
 public abstract class DbService<T extends BaseEntity<ID>, ID> {
     protected CrudRepository<T, ID> repository;
