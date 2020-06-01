@@ -1,6 +1,7 @@
 ## I-Legal (backend)
 - link do frontendu: https://github.com/Sebeni/i-legal-front
 - link do backendu: https://github.com/Sebeni/i-legal-back
+- demo: https://i-legal-front.herokuapp.com/ (edit: 19.06 - problem z isap api, nie działa opcja wyświetlania tekstu aktów prawnych)
 
 ### Uruchomienie
 - domyślnie backend uruchamia się na porcie 8080 a frontend 8081. W przypadku konieczności zmiany tych portów trzeba 
@@ -19,7 +20,7 @@ jest timestamp;
 słowa kluczowe z ISAP API, dlatego przejście do tej zakładki (wyłącznie za pierwszym razem) 
 może chwilę potrwać;
 
-###Specyfikacja
+### Specyfikacja
 - Backend (Java 1.8) zbudowany przy użyciu Gradle. Użyte zależności:
 spring boot
 (data-jpa,
@@ -45,7 +46,7 @@ razem z ISAP API), orzeczenia, uaktualnienia orzeczenia, wyszukiwania orzeczenia
 6. 4* (2) wzorce projektowe: fasada (back ActDifferenceFinderFacade), strategia (w wielu miejscach), singleton (front KeywordCacheSingleton), *aspekty (back IsapWatcher, SaosWatcher);
 7. warstwa widoku w Vaadin
 
-###Opis aplikacji 
+### Opis aplikacji 
 Aplikacja składa się z 2 powiązanych ze sobą modułów
 
 - Aktów prawnych
