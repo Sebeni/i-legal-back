@@ -18,7 +18,7 @@ import java.util.List;
 
 @Component
 @Slf4j
-public class ActDifferenceCheckerFinder implements ActDifferenceFinderFacade {
+public class ActDifferenceFinder implements ActDifferenceFinderFacade {
     private final ActDifferenceDbService actDiffDb;
     private final ActDbService actDb;
     private final IsapClient isapClient;
@@ -26,8 +26,8 @@ public class ActDifferenceCheckerFinder implements ActDifferenceFinderFacade {
     private final ActDifferenceMapper actDifferenceMapper;
 
     @Autowired
-    public ActDifferenceCheckerFinder(ActDifferenceDbService actDiffDb, ActDbService actDb, IsapClient isapClient,
-                                      ActMapper actMapper, ActDifferenceMapper actDifferenceMapper) {
+    public ActDifferenceFinder(ActDifferenceDbService actDiffDb, ActDbService actDb, IsapClient isapClient,
+                               ActMapper actMapper, ActDifferenceMapper actDifferenceMapper) {
         this.actDiffDb = actDiffDb;
         this.actDb = actDb;
         this.isapClient = isapClient;
@@ -64,7 +64,7 @@ public class ActDifferenceCheckerFinder implements ActDifferenceFinderFacade {
     }
     
     private IsapActSearchQuery createQuery(ActDto actDto) {
-        return new IsapActSearchQuery(null, actDto.getTitle(), null, null, 
+        return new IsapActSearchQuery(null, null, null, null, 
                 actDto.getPublisher(), actDto.getYear(), actDto.getPosition(), 0);
     }
     
