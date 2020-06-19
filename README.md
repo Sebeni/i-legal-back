@@ -1,6 +1,7 @@
 ## I-Legal (backend)
 - link do frontendu: https://github.com/Sebeni/i-legal-front
 - link do backendu: https://github.com/Sebeni/i-legal-back
+- demo: https://i-legal-front.herokuapp.com/ (edit: 19.06 - problem z isap api, nie działa opcja wyświetlania tekstu aktów prawnych)
 
 ### Uruchomienie
 - domyślnie backend uruchamia się na porcie 8080 a frontend 8081. W przypadku konieczności zmiany tych portów trzeba 
