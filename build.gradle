@@ -30,7 +30,7 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
 
-    if(System.getenv("TASK_ACTIVE_DB_PROFILE").equals("demo")) {
+    if(System.getenv("LEGAL_PROFILE").equals("demo")) {
         compile 'org.postgresql:postgresql'
     }
 }
