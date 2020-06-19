@@ -30,7 +30,7 @@ public class ActKeywordDbService extends DbService<ActKeyword, String> {
 
     @Override
     public List<ActKeyword> getAll() {
-        if(!activeProfile.equalsIgnoreCase("heroku")){
+        if(!activeProfile.equalsIgnoreCase("demo")){
             if(repository.count() == 0){
                 saveAllKeywords(isapClient.getAllKeywordsAndNames());
             }
