@@ -29,6 +29,10 @@ dependencies {
     }
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+
+    if(System.getenv("TASK_ACTIVE_DB_PROFILE").equals("heroku")) {
+        compile 'org.postgresql:postgresql'
+    }
 }
 
 test {

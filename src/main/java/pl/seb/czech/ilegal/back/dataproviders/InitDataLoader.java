@@ -48,19 +48,20 @@ public class InitDataLoader implements CommandLineRunner {
     public void run(String... args) {
         serverStartRepository.save(new ServerStartLog());
         
-        List<ActDto> actDtos = isapMapper.mapToDtoList(actDataProvider.getConvertedElements());
-        actDtos.forEach(actDto -> actDbService.save(actMapper.mapToEntity(actDto)));
-        
-        List<JudgmentSynopsisDto> judgmentSynopsisDtos = saosMapper.mapToDtoList(judgmentSynopsisDP.getConvertedElements());
-        List<JudgmentDetailsDto> judgmentDetailsDtos = judgmentDetailsDP.getConvertedElements().stream()
-                .map(saosJudgmentDetails -> saosMapper.mapToJudgmentDetailDto(saosJudgmentDetails))
-                .collect(Collectors.toList());
-        
-        judgmentSynopsisDtos.forEach(judgmentSynopsisDto -> {
-            pairSynopsisToDetails(judgmentSynopsisDto, judgmentDetailsDtos);
-            judgmentDbService.save(judgmentMapper.mapToEntity(judgmentSynopsisDto));
-        });
-        
+        if(serverStartRepository.count() == 1) {
+            List<ActDto> actDtos = isapMapper.mapToDtoList(actDataProvider.getConvertedElements());
+            actDtos.forEach(actDto -> actDbService.save(actMapper.mapToEntity(actDto)));
+
+            List<JudgmentSynopsisDto> judgmentSynopsisDtos = saosMapper.mapToDtoList(judgmentSynopsisDP.getConvertedElements());
+            List<JudgmentDetailsDto> judgmentDetailsDtos = judgmentDetailsDP.getConvertedElements().stream()
+                    .map(saosJudgmentDetails -> saosMapper.mapToJudgmentDetailDto(saosJudgmentDetails))
+                    .collect(Collectors.toList());
+
+            judgmentSynopsisDtos.forEach(judgmentSynopsisDto -> {
+                pairSynopsisToDetails(judgmentSynopsisDto, judgmentDetailsDtos);
+                judgmentDbService.save(judgmentMapper.mapToEntity(judgmentSynopsisDto));
+            });
+        }
     }
     
     private void pairSynopsisToDetails(JudgmentSynopsisDto synopsis, List<JudgmentDetailsDto> judgmentDetailsDtos) {

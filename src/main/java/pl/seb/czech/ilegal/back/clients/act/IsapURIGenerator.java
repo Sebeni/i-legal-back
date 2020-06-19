@@ -13,11 +13,12 @@ import java.util.Map;
 @Service
 public class IsapURIGenerator extends URIGenerator {
     private final IsapActFilenameGenerator generator;
-    private final String searchEndpointUrl = "/search";
+    private final static String ISAP_API_URL = "http://isap.sejm.gov.pl/api/isap";
+    private final static String SEARCH_ENDPOINT_URL = "/search";
     
     @Autowired
     public IsapURIGenerator(IsapActFilenameGenerator generator) {
-        super("http://isap.sejm.gov.pl/api/isap");
+        super(ISAP_API_URL);
         this.generator = generator;
     }
     
@@ -35,6 +36,6 @@ public class IsapURIGenerator extends URIGenerator {
 
  
     public URI generateSearchQueryUri(SearchQuery query) {
-        return super.generateSearchQueryUri(query, searchEndpointUrl);
+        return super.generateSearchQueryUri(query, SEARCH_ENDPOINT_URL);
     }
 }

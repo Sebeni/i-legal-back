@@ -21,8 +21,8 @@ może chwilę potrwać;
 
 ### Specyfikacja
 - Backend (Java 1.8) zbudowany przy użyciu Gradle. Użyte zależności:
-spring boot
-(data-jpa,
+spring (boot,
+data-jpa,
 web,
 test,
 validation,

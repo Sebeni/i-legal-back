@@ -9,14 +9,15 @@ import java.net.URI;
 
 @Service
 public class SaosURIGenerator extends URIGenerator {
-    private final String searchEndpointUrl = "/search/judgments";
+    private final static String SAOS_API_URI = "https://www.saos.org.pl/api";
+    private final static String SEARCH_ENDPOINT_URL = "/search/judgments";
 
     public SaosURIGenerator() {
-        super("https://www.saos.org.pl/api");
+        super(SAOS_API_URI);
     }
 
 
     public URI generateSearchQueryUri(SearchQuery query) {
-        return super.generateSearchQueryUri(query, searchEndpointUrl);
+        return super.generateSearchQueryUri(query, SEARCH_ENDPOINT_URL);
     }
 }
