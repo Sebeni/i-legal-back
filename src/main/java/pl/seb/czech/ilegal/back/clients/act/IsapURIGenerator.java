@@ -23,6 +23,15 @@ public class IsapURIGenerator extends URIGenerator {
     }
     
     public URI generateDownloadActURI(String isapId, IsapActTextType textType) {
+        return generateDirectLink(isapId, textType);
+    }
+ 
+    public URI generateSearchQueryUri(SearchQuery query) {
+        return super.generateSearchQueryUri(query, SEARCH_ENDPOINT_URL);
+    }
+    
+//    due to the problems with Isap API (sometimes files weren't found) this method is currently disabled.
+    private URI generateWithApi(String isapId, IsapActTextType textType){
         String downloadEndpointURL = apiUrl + "/deeds/{publisher}/{year}/{position}/text/{type}/{fileName}";
         Map<String, String> params = new HashMap<>();
         params.put("publisher", isapId.substring(0,3));
@@ -30,12 +39,15 @@ public class IsapURIGenerator extends URIGenerator {
         params.put("position", isapId.substring(10));
         params.put("type", textType.getSymbol());
         params.put("fileName", generator.generateTxtFilename(isapId, textType));
-
         return UriComponentsBuilder.fromUriString(downloadEndpointURL).buildAndExpand(params).toUri();
     }
-
- 
-    public URI generateSearchQueryUri(SearchQuery query) {
-        return super.generateSearchQueryUri(query, SEARCH_ENDPOINT_URL);
+    
+    private URI generateDirectLink(String isapId, IsapActTextType textType){
+        String downloadEndpointURL ="http://isap.sejm.gov.pl/isap.nsf/download.xsp/{isapId}/{type}/{fileName}";
+        Map<String, String> params = new HashMap<>();
+        params.put("isapId", isapId);
+        params.put("type", textType.getSymbol());
+        params.put("fileName", generator.generateTxtFilename(isapId, textType));
+        return UriComponentsBuilder.fromUriString(downloadEndpointURL).buildAndExpand(params).toUri();
     }
 }
