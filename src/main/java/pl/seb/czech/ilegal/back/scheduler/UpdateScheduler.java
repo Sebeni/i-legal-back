@@ -20,7 +20,7 @@ public class UpdateScheduler {
     @Getter
     private ScheduledMessageDto scheduledMessageDto = new ScheduledMessageDto();
     
-    @Scheduled(cron = "0 0 1 * * *")
+    @Scheduled(cron = "0 45 * * * *")
     public void updateActs() {
         List<ActDifferenceDto> updateResult = diffFinder.getActDifferences();
         log.info("Scheduled update");

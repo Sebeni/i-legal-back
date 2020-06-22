@@ -1,5 +1,6 @@
 package pl.seb.czech.ilegal.back.controllers.client;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping(value = "${url.base.search}")
+@Slf4j
 public class IsapController {
     @Autowired
     private IsapClient isapClient;
@@ -34,6 +36,12 @@ public class IsapController {
     
     @GetMapping(value = "${url.acts.isap.text.link.check}")
     public boolean checkIfTextExists(@RequestParam String uri) {
-        return isapClient.validateTxtExists(uri);
+        boolean exists = false;
+        try{
+            exists = isapClient.validateTxtExists(uri);
+        } catch (Exception e){
+            log.error("Error while checking if text exists", e);
+        }
+        return exists;
     }
 }
