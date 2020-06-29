@@ -29,7 +29,9 @@ public class ActDifferenceController {
     }
     
     @GetMapping(value = "${url.acts.difference.scheduled}")
-    public ScheduledMessageDto getScheduledInfo(){return updateScheduler.getScheduledMessageDto();}
+    public ScheduledMessageDto getScheduledInfo() { 
+        return updateScheduler.getScheduledMessageDto();
+    }
     
     @GetMapping(value = "${url.acts.difference}")
     public List<ActDifferenceDto> getDiffHistory(){

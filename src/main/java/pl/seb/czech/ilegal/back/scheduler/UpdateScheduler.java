@@ -9,6 +9,7 @@ import pl.seb.czech.ilegal.back.clients.act.ActDifferenceFinderFacade;
 import pl.seb.czech.ilegal.back.domain.NowTime;
 import pl.seb.czech.ilegal.back.domain.act.dto.ActDifferenceDto;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Component
@@ -16,14 +17,22 @@ import java.util.List;
 public class UpdateScheduler {
     @Autowired
     private ActDifferenceFinderFacade diffFinder;
-    
-    @Getter
-    private ScheduledMessageDto scheduledMessageDto = new ScheduledMessageDto();
+
+    public ScheduledMessageDto getScheduledMessageDto() {
+        return scheduledMessageDto;
+    }
+
+    private ScheduledMessageDto scheduledMessageDto;
     
     @Scheduled(cron = "0 45 * * * *")
     public void updateActs() {
         List<ActDifferenceDto> updateResult = diffFinder.getActDifferences();
         log.info("Scheduled update");
         scheduledMessageDto = new ScheduledMessageDto(NowTime.generate(), updateResult);
+    }
+    
+    @PostConstruct
+    private void firstUpdate(){
+        updateActs();
     }
 }
